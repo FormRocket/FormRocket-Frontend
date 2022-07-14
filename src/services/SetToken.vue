@@ -1,5 +1,5 @@
 <script setup>
-import { reloadAuth } from './auth.js'
+import { reloadAuth } from '@/services/auth.js'
 import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();

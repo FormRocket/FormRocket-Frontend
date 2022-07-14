@@ -6,6 +6,6 @@
 </template>
 
 <script setup>
-import { loading, reloadAuth } from './services/auth.js'
+import { loading, reloadAuth } from '@/services/auth.js'
 reloadAuth();
 </script>

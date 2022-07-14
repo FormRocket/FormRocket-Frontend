@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { session } from '../services/auth.js'
+import { session } from '@/services/auth.js'
 import Navbar from './Navbar.vue'
 
 const plans = {

@@ -1,4 +1,4 @@
-import { apiURL } from './constants.js'
+import { apiURL } from '@/services/constants.js'
 
 export async function request(options) {
     try {
@@ -26,5 +26,4 @@ export async function request(options) {
     } catch(e) {
         return { status: 500, data: {} }
     }
-    
 }

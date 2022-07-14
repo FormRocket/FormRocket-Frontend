@@ -1,4 +1,4 @@
-import { request } from './request.js'
+import { request } from '@/services/request.js'
 import { ref } from 'vue'
 
 export const loading = ref(true);
