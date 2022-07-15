@@ -46,3 +46,8 @@ export function reloadAuth() {
         loading.value = false;
     }
 }
+
+export function logout() {
+    localStorage.removeItem("token");
+    session.value = { token: null, user: null }
+}
