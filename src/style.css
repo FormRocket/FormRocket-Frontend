@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", sans-serif !important;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -17,4 +19,52 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+
+/* Color pallete */
+:root {
+  --bg-primary: #242424;
+  --bg-secondary: #2e2e2f;
+  --bg-secondary-darker: #212122;
+  --bg-secondary-darkest: #161616;
+  --bg-lightest: #474747;
+}
+
+.navbar {
+  background-color: var(--bg-secondary);
+}
+
+.text-lg-gradient {
+  background: -webkit-linear-gradient(rgb(244, 114, 182) , rgb(248, 89, 160)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: table-row !important;
+  color: white; /* fallback color */
+}
+
+h1 {
+  font-weight: 900 !important;
+}
+
+
+/* add a smooth animation effect when hovering over the card */
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:active {
+  background-color: var(--bg-secondary-darkest) !important;
+}
+
+.bg-lightest {
+  background-color: var(--bg-lightest) !important;
+}
+
+.bg-primary {
+  background-color: var(--bg-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary) !important;
 }
