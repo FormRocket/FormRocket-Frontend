@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { login, logout } from '../services/auth.js'
+import { login, logout } from '@/services/auth.js'
 defineProps({
   session: Object,
   plan: String,

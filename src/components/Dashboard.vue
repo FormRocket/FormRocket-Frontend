@@ -26,7 +26,7 @@
 
 <script setup>
 import { session } from '@/services/auth.js'
-import Navbar from './Navbar.vue'
+import Navbar from '@/components/Navbar.vue'
 
 const plans = {
     0: "Basic",
