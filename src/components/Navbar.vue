@@ -2,10 +2,10 @@
   <div class="sidebar">
     <div class="sidebarItems">
         <button v-if="showLogin" class="sidebarItem" @click="login">Login</button>
-        <button class="sidebarItem">Create Form</button>
-        <button class="sidebarItem" @click="logout">Logout</button>
-        <button class="sidebarItem">Subscriptions</button>
-        <button class="sidebarItem">Pricing</button>
+        <button v-if="showNewForm" class="sidebarItem">Create Form</button>
+        <button v-if="showLogout" class="sidebarItem" @click="logout">Logout</button>
+        <button v-if="showSubscriptions" class="sidebarItem">Subscriptions</button>
+        <button v-if="showPricing" class="sidebarItem">Pricing</button>
     </div>
     <div class="profileContainer" v-if="session?.user">
         <img class="profileAvatar" :src="session.user.avatar" />

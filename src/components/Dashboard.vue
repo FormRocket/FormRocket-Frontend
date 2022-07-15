@@ -19,7 +19,6 @@
                 <h1 class="text-6xl font-bold m-3">Introducing <span class="text-lg-gradient">FormRocket3.</span></h1>
                 <p class="text-lg">Create powerful HTML forms, store responses, and send to your favorite apps.</p>
             </center>
-
         </div>
     </template>
 </template>
