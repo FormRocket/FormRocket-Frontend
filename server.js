@@ -39,15 +39,6 @@ function sendResponse(res, file) {
     readStream.pipe(res);
 }
 
-function printMem() {
-    readline.cursorTo(process.stdout, 0);
-    process.stdout.clearLine();
-    const used = process.memoryUsage().heapUsed / 1024 / 1024;
-    process.stdout.write(`${used.toFixed(2)}/512 MB`);
-}
-
-setInterval(printMem, 1000)
-
 const server = http.createServer(function (req, res) {
   const path = req.url.split("?")[0];
   if (filePaths.includes(path)) {
