@@ -31,10 +31,6 @@
   --bg-lightest: #474747;
 }
 
-.navbar {
-  background-color: var(--bg-secondary);
-}
-
 .text-lg-gradient {
   background: -webkit-linear-gradient(rgb(244, 114, 182) , rgb(248, 89, 160)) !important;
   -webkit-background-clip: text !important;
