@@ -1,7 +1,7 @@
 <template>
     <template v-if="session.user">
         <Navbar :session="session" :showLogout="true" :plan="plans[session.user.plan]" />
-        <div class="p-4">
+        <div class="p-4 appContent">
             <h1 class="text-6xl mb-3">Hey, <span style="display:initial !important;"
                     class="text-lg-gradient">{{ session.user.name }}</span>!</h1>
             <p class="text-lg mb-5">Manage your forms.</p>
@@ -14,7 +14,7 @@
     </template>
     <template v-else>
         <Navbar :session="null" :showLogin="true" :plan="null" />
-        <div class="p-4">
+        <div class="p-4 appContent">
             <center>
                 <h1 class="text-6xl font-bold m-3">Introducing <span class="text-lg-gradient">FormRocket3.</span></h1>
                 <p class="text-lg">Create powerful HTML forms, store responses, and send to your favorite apps.</p>
