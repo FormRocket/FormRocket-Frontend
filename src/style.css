@@ -12,7 +12,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #171717;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,10 +24,10 @@
 
 /* Color pallete */
 :root {
-  --bg-primary: #242424;
-  --bg-secondary: #2e2e2f;
-  --bg-secondary-darker: #212122;
-  --bg-secondary-darkest: #161616;
+  --bg-primary: #161716;
+  --bg-secondary: #292929;
+  --bg-secondary-darker: #222222;
+  --bg-secondary-darkest: #141414;
   --bg-lightest: #474747;
 }
 
@@ -68,7 +68,7 @@ h1 {
 /* navbar and sidebar */
 
 .navbar, .sidebar {
-  background-color: rgb(41, 41, 41);
+  background-color: #292929;
 }
 .sidebar {
   z-index: 5000;
