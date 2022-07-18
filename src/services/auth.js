@@ -30,7 +30,7 @@ export function reloadAuth() {
     if (tokenRegex.test(token)) {
         loading.value = true;
         request({
-            url: "/api/users/@me",
+            url: "/api/users/@me/all",
             method: "GET",
             auth: token
         }).then(response => {
