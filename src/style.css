@@ -10,6 +10,8 @@
   line-height: 1.5;
   font-weight: 400;
 
+  letter-spacing: -0.04em;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #171717;
@@ -133,7 +135,6 @@ button {
 }
 
 .sidebarItem {
-  display: block;
   width: 100%;
   padding: 8px 16px;
   text-align: left;
@@ -145,15 +146,25 @@ button {
   background-color: #222121 !important;
 }
 
+.sidebarItem:active {
+  background-color: #1b1a1a !important;
+}
+
 .appContent {
   height: calc(100% - 40px);
   width: calc(100% - 200px);
   margin-left: 200px;
+  margin-top: 40px
 }
 
 @media (max-width: 992px) {
-  .sidebar {
-      display: none;
+
+  .showMobile {
+    display: block;
+  }
+
+  .hideMobile {
+    display: none;
   }
 
   .appContent {

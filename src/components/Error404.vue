@@ -1,5 +1,5 @@
 <template>
-    <Navbar :session="null" />
+    <Navbar :session="null" :showDashboard="true" />
     <div class="appContent">
         <h1>Error 404</h1>
         <br />

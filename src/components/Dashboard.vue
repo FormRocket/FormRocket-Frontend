@@ -4,26 +4,39 @@
         <div class="p-10 appContent">
             <h1 class="text-6xl mb-3">Hey, <span style="display:initial !important;"
                     class="text-lg-gradient">{{ session.user.name }}</span>!</h1>
+            <p class="text-lg mb-5">Welcome to your dashboard.</p>
+
+            <h1 class="text-4xl mb-3 mt-9 text-bold">Your Forms</h1>
             <p class="text-lg mb-5">Manage your forms.</p>
 
-            <div class="card shadow rounded-xl p-4 max-w-sm w-full cursor-pointer bg-[#111111]">
-                <h1 class="text-2xl mb-3">Cool form</h1>
-                <p class="text-lg">Created yesterday.</p> <!-- use the time library from the old version -->
-            </div>
+            <Card title="Cool form" text="Created yesterday" href="/settings/forms/48575638474859" />
+            
         </div>
     </template>
     <template v-else>
         <Navbar :session="null" :showLogin="true" />
         <div class="p-10 appContent">
 <div class="h-auto">
+    <center>
     <div class="px-10 py-24 mx-auto max-w-7xl">
-        <div class="w-full mx-auto text-left md:text-center">
-            <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"> Introducing <span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 lg:inline">the all new</span> <br class="lg:block hidden"> FormRocket3. </h1>
-            <p class="px-0 mb-6 text-lg text-gray-300 md:text-xl lg:px-24"> A powerful backend for all your HTML forms. Recieve submissions &amp; send to your favorite destinations. </p>
-            <button @click="login" class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button>
+        <div class="w-full mx-auto text-left text-center">
+            <div class="flex flex-row justify-center">
+                <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"> Introducing <span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 lg:inline">the all new</span> <br class="lg:block hidden"> FormRocket3. </h1>
+            </div>
+
+            <div class="flex flex-row justify-center">
+                <p class="px-0 mb-6 text-lg text-gray-300 md:text-xl lg:px-24"> A powerful backend for all your HTML forms. Recieve submissions &amp; send to your favorite destinations. </p>
+            </div>
+            
+            <div class="flex flex-row justify-center">
+                <button @click="login" class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button>
+                <a href="/pricing"><button class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></a>
+            </div>
+
             
         </div>
     </div>
+    </center>
 </div>
 
 
@@ -72,6 +85,7 @@
 import { session, login, logout } from '@/services/auth.js'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
+import Card from '@/components/Card.vue';
 
 const plans = {
     0: "Basic",
