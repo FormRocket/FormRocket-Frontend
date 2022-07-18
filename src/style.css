@@ -44,14 +44,16 @@ h1 {
 }
 
 
-/* add a smooth animation effect when hovering over the card */
-.card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
 
 .card:active {
-  background-color: var(--bg-secondary-darkest) !important;
+  transform: scale(0.95);
+  transition: all 0.1s ease-in-out;
 }
+
+button {
+  transition: background-color 0.1s ease-in-out;
+}
+
 
 .bg-lightest {
   background-color: var(--bg-lightest) !important;
