@@ -41,9 +41,9 @@
                 <p class="px-0 mb-6 text-lg text-gray-300 md:text-xl lg:px-24"> A powerful backend for all your HTML forms. Recieve submissions &amp; send to your favorite destinations. </p>
             </div>
             
-            <div class="flex flex-row justify-center">
-                <button @click="login" class="sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button>
-                <a href="/pricing"><button class="sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></a>
+            <div class="flex flex-row justify-center introductionButtons">
+                <div><button @click="login" class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button></div>
+                <a href="/pricing"><button class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></a>
             </div>
 
             

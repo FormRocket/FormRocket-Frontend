@@ -158,7 +158,6 @@ button {
 }
 
 @media (max-width: 992px) {
-
   .showMobile {
     display: block;
   }
@@ -170,5 +169,16 @@ button {
   .appContent {
       width: 100%;
       margin-left: 0;
+  }
+}
+
+@media (max-width: 407px) {
+  .introductionButtons {
+    flex-direction: column;
+  }
+
+  .introductionButton {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
