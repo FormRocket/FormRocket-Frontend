@@ -30,12 +30,12 @@ export function reloadAuth() {
     if (tokenRegex.test(token)) {
         loading.value = true;
         request({
-            url: "/api/users/@me/all",
+            url: "/api/users/@me?withForms=true",
             method: "GET",
             auth: token
         }).then(response => {
             if (response.status == 200) {
-                session.value = { token, user: response.data }
+                session.value = { token, user: response.data, forms: response.data.forms }
             } else {
                 localStorage.removeItem("token");
             }

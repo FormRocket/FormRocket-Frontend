@@ -7,9 +7,9 @@
             <p class="text-lg mb-5">Welcome to your dashboard.</p>
 
             <h1 class="text-4xl mb-3 mt-9 text-bold">Your Forms</h1>
-            <p class="text-lg mb-5">You have <b>{{session.user.forms.length > 0 ? session.user.forms.length : "no"}} forms.</b></p>
+            <p class="text-lg mb-5">You have <b>{{session.forms.length > 0 ? formatFormCount(session.forms.length) : "no forms."}} </b></p>
             <div class="flex flex-wrap">
-                <div v-for="form in session.user.forms" :key="form.id" class="w-full md:w-1/3 lg:w-1/4 p-3">
+                <div v-for="form in session.forms" :key="form.id" class="w-full md:w-1/3 lg:w-1/4 p-3">
                     <Card :title="form.name" :text="'Created ' + formatDistance(form.createdAt, new Date(), { addSuffix: true })" :href="'/settings/forms/' + form.id" />
                 </div>
             </div>
@@ -100,6 +100,11 @@ import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 import Card from '@/components/Card.vue';
 import { formatDistance } from 'date-fns'
+
+function formatFormCount(count) {
+    if (count == 1) return "1 form.";
+    return `${count} forms.`
+}
 
 const plans = {
     0: "Basic",
