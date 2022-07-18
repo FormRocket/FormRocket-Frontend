@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard.vue'
 import FormSettings from './components/FormSettings.vue'
 import Error404 from './components/Error404.vue'
 import SetToken from './services/SetToken.vue'
+import NewForm from './services/NewForm.vue'
 
 import './style.css'
 
@@ -22,6 +23,10 @@ const routes = [
     {
         path: '/settings/forms/:id',
         component: FormSettings
+    },
+    {
+        path: '/new',
+        component: NewForm
     },
     {
         path: '/:pathMatch(.*)',
