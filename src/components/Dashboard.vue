@@ -29,8 +29,8 @@
             </div>
             
             <div class="flex flex-row justify-center">
-                <button @click="login" class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button>
-                <a href="/pricing"><button class="text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></a>
+                <button @click="login" class="sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button>
+                <a href="/pricing"><button class="sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></a>
             </div>
 
             
