@@ -43,7 +43,7 @@
             
             <div class="flex flex-row justify-center introductionButtons">
                 <div><button @click="login" class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button></div>
-                <a href="/pricing"><button class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></a>
+                <router-link to="/pricing"><button class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></router-link>
             </div>
 
             
