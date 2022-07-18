@@ -14,13 +14,13 @@
                 </div>
             </div>
 
-            <h1 class="text-4xl mb-3 mt-9 text-bold">Your Organizations</h1>
+            <!--<h1 class="text-4xl mb-3 mt-9 text-bold">Your Organizations</h1>
             <p class="text-lg mb-5">Manage forms within your organizations.</p>
             <div class="flex flex-wrap">
                 <div class="w-full md:w-1/3 lg:w-1/4 p-3">
                     <Card :title="'Example organization'" :text="'4 forms'" :href="'/organizations/123'" />
                 </div>
-            </div>
+            </div>-->
 
 
             
