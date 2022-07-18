@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
 import App from './App.vue'
 import Dashboard from './components/Dashboard.vue'
+import FormSettings from './components/FormSettings.vue'
 import Error404 from './components/Error404.vue'
 import SetToken from './services/SetToken.vue'
 
@@ -19,9 +20,13 @@ const routes = [
         component: SetToken
     },
     {
-        path: '/:pathMatch(.*)',
-        component: Error404,
+        path: '/settings/forms/:id',
+        component: FormSettings
     },
+    {
+        path: '/:pathMatch(.*)',
+        component: Error404
+    }
 ]
 
 const router = VueRouter.createRouter({
