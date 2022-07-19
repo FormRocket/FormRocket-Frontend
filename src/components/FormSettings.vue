@@ -1,10 +1,34 @@
 <template>
-    <div v-if="!session.user">Your not logged in bozo</div>
-    <div v-else>{{ form?.name || "Form Not Found" }}</div>
+    <div v-if="!session.user">
+        <Navbar :session="null" :showBack="true" />
+        <div class="appContent">
+            <ShowError error="unauthorized" />
+        </div>
+    </div>
+    <div v-else>
+        <div v-if="form">
+           <Navbar :session="session" :showBack="true" :showDashboard="true" />
+           <div class="appContent p-9">
+                <h1 class="text-5xl">Manage {{form.name}}</h1>
+                <p>Manage this form.</p>
+            </div>
+        </div>
+
+        <div v-else>
+            <Navbar :session="session" :showBack="true" />
+            <div class="appContent">
+                <ShowError error="invalidForm" />
+            </div>
+        </div>
+
+    </div>
 </template>
 <script setup>
-import { session } from '@/services/auth.js'
+import { session, login } from '@/services/auth.js'
 import { useRoute } from 'vue-router';
+import Card from "@/components/Card.vue";
+import Navbar from "@/components/Navbar.vue";
+import ShowError from '@/components/ShowError.vue';
 const route = useRoute();
 
 const formId = route.params.id;
