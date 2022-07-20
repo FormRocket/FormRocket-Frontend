@@ -35,7 +35,7 @@ export function reloadAuth() {
             auth: token
         }).then(response => {
             if (response.status == 200) {
-                session.value = { token, user: response.data, forms: response.data.forms }
+                session.value = { token, user: response.data, forms: response.data.forms }  // forms is kinda useless, since its already in the user object 💀
             } else {
                 localStorage.removeItem("token");
             }

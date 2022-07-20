@@ -5,8 +5,9 @@
             <h1 class="text-6xl mb-3">Hey, <span style="display:initial !important;"
                     class="text-lg-gradient">{{ session.user.name }}</span>!</h1>
             <p class="text-lg mb-5">Welcome to your dashboard.</p>
+            <button @click="$router.push('/new')" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">CREATE FORM</button>
 
-            <h1 class="text-4xl mb-3 mt-9 text-bold">Your Forms</h1>
+            <h1 class="text-4xl mb-3 mt-9 text-bold">Your Forms <Icon icon="Paper" bulk size="35px" /></h1>
             <p class="text-lg mb-5">You have <b>{{session.forms.length > 0 ? formatFormCount(session.forms.length) : "no forms."}} </b></p>
             <div class="flex flex-wrap">
                 <div v-for="form in session.forms" :key="form.formId" class="w-full md:w-1/3 lg:w-1/4 p-3">
@@ -42,8 +43,8 @@
             </div>
             
             <div class="flex flex-row justify-center introductionButtons">
-                <div><button @click="login" class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-pink-800">GET STARTED</button></div>
-                <router-link to="/pricing"><button class="introductionButton sm:display-block text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-gray-800">PRICING</button></router-link>
+                <div><button @click="login" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-700 focus:outline-none">GET STARTED</button></div>
+                <router-link to="/pricing"><button class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">PRICING</button></router-link>
             </div>
 
             
@@ -96,6 +97,7 @@
 
 <script setup>
 import { session, login, logout } from '@/services/auth.js'
+import Icon from "@/iconly/iconly.vue";
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 import Card from '@/components/Card.vue';

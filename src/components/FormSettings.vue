@@ -9,8 +9,14 @@
         <div v-if="form">
            <Navbar :session="session" :showBack="true" :showDashboard="true" />
            <div class="appContent p-9">
-                <h1 class="text-5xl">Manage {{form.name}}</h1>
+                <h1 class="text-5xl mb-5">Manage <span style="display:initial !important;"
+                    class="text-lg-gradient">{{form.name}}</span> </h1>
                 <p>Manage this form.</p>
+
+                
+
+                
+                
             </div>
         </div>
 
@@ -29,6 +35,7 @@ import { useRoute } from 'vue-router';
 import Card from "@/components/Card.vue";
 import Navbar from "@/components/Navbar.vue";
 import ShowError from '@/components/ShowError.vue';
+import Icon from "@/iconly/iconly.vue";
 const route = useRoute();
 
 const formId = route.params.id;
