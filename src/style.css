@@ -23,8 +23,9 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.introductionButton:active {
-  transform: scale(0.95);
+.introductionButton:active,
+.settingsBarItem:active {
+  transform: scale(0.87);
   transition: transform 0.2s ease-in-out;
 }
 
