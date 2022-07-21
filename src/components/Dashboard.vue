@@ -2,7 +2,8 @@
     <template v-if="session.user">
         <Navbar :session="session" :showLogout="true" :showNewForm="true" />
         <div class="p-10 appContent">
-            <h1 class="text-6xl mb-3">Hey, <span style="display:initial !important;"
+            <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
+            <h1 class="text-6xl mb-3 mt-2">Hey, <span style="display:initial !important;"
                     class="text-lg-gradient">{{ session.user.name }}</span>!</h1>
             <p class="text-lg mb-5">Welcome to your dashboard.</p>
             <button @click="$router.push('/new')" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">CREATE FORM</button>
