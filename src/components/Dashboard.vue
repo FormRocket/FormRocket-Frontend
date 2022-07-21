@@ -3,10 +3,14 @@
         <Navbar :session="session" :showLogout="true" :showNewForm="true" />
         <div class="p-10 appContent">
             <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
-            <h1 class="text-6xl mb-3 mt-2">Hey, <span style="display:initial !important;"
-                    class="text-lg-gradient">{{ session.user.name }}</span>!</h1>
+            <h1 class="text-6xl mb-3 mt-2">Welcome, <span style="display:initial !important;"
+                    class="text-lg-gradient">{{ session.user.name }}!</span></h1>
             <p class="text-lg mb-5">Welcome to your dashboard.</p>
-            <button @click="$router.push('/new')" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">CREATE FORM</button>
+            <button @click="$router.push('/new')" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">CREATE FORM</button> 
+            
+            <div onclick="window.location.href = 'https://www.twitter.com/@SuperSweetSuite'" class="ico ml-2 cursor-pointer p-3 rounded-full hover:bg-[#141414]" style="display:initial">
+                <svg class="ico" style="display:initial; filter: invert(59%) sepia(31%) saturate(925%) hue-rotate(283deg) brightness(96%) contrast(99%);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </div>
 
             <h1 class="text-4xl mb-3 mt-9 text-bold">Your Forms <Icon icon="Paper" bulk size="35px" /></h1>
             <p class="text-lg mb-5">You have <b>{{session.forms.length > 0 ? formatFormCount(session.forms.length) : "no forms."}} </b></p>

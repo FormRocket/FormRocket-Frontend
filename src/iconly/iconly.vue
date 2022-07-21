@@ -1,7 +1,7 @@
 
 <template>
   <div
-    :style="{ fontSize: size, color }"
+    :style="{ fontSize: size, color, marginTop: '-30%', minHeight:'40px', textAlign: 'center' }"
     class="viconly-icon-container"
   >
     <i

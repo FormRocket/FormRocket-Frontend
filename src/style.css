@@ -25,9 +25,15 @@
 
 .introductionButton:active,
 .settingsBarItem:active {
-  transform: scale(0.87);
+  transform: scale(0.87) !important;
   transition: transform 0.2s ease-in-out;
 }
+
+.ico:active {
+  transform: scale(0.65) !important;
+  transition: transform 0.2s ease-in-out;
+}
+
 
 
 /* Color pallete */
@@ -37,6 +43,7 @@
   --bg-secondary-darker: #222222;
   --bg-secondary-darkest: #141414;
   --bg-lightest: #474747;
+  --accent: #f472b6;
 }
 
 .text-lg-gradient {
@@ -51,7 +58,11 @@ h1 {
   font-weight: 900 !important;
 }
 
-
+.card:hover {
+  /*show a shadow on hover*/
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.18), 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+}
 
 .card:active {
   transform: scale(0.95);
