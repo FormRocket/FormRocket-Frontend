@@ -14,10 +14,8 @@
                           <button @click="switchTab('setup')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'setup' ? (' bg-[#121212] font-bold') : '')">SETUP FORM</button>
                           <button @click="switchTab('basicInfo')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'basicInfo' ? (' bg-[#121212] font-bold') : '')" >BASIC INFO</button>
                           <button @click="switchTab('analytics')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'analytics' ? (' bg-[#121212] font-bold') : '')">ANALYTICS</button>
-                          
                           <button @click="switchTab('integrations')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'integrations' ? (' bg-[#121212] font-bold') : '')">INTEGRATIONS</button>
                           <button @click="switchTab('thankYouPage')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'thankYouPage' ? (' bg-[#121212] font-bold') : '')">THANK YOU PAGE</button>
-                          
                           <button @click="switchTab('security')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'security' ? (' bg-[#121212] font-bold') : '')">SECURITY</button>
                           <button @click="switchTab('dangerZone')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'dangerZone' ? (' bg-[#121212] font-bold') : '')">DANGER ZONE</button>
                      </div>

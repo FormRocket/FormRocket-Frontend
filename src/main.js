@@ -6,6 +6,7 @@ import FormSettings from './components/FormSettings.vue'
 import Error404 from './components/Error404.vue'
 import SetToken from './services/SetToken.vue'
 import NewForm from './components/NewForm.vue'
+import UserSettings from './components/UserSettings.vue'
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -26,6 +27,10 @@ const routes = [
     {
         path: '/new',
         component: NewForm
+    },
+    {
+        path: "/settings",
+        component: UserSettings
     },
     {
         path: '/:pathMatch(.*)',
