@@ -17,7 +17,7 @@
                 <div v-if="atState == 'formName'">
                 <h1 class="text-3xl mt-8 mb-2">What would you like your form to be called?</h1>
                 <p>Set a name for your new form.</p>
-                <input placeholder="Cool form" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input v-bind:value="formObj.name" v-on:input="formObj.name = $event.target.value" placeholder="Cool form" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <div class="block pt-[20px]">
                 <button disabled style="opacity: 50%" class="cursor-not-allowed sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">&lt; BACK</button> 
@@ -29,7 +29,7 @@
                 <div v-else-if="atState == 'blockedIps'">
                 <h1 class="text-3xl mt-8 mb-2">Would you like to add any IP blocks?</h1>
                 <p>Block IPs from submitting to your form. Split with a comma.</p>
-                <input placeholder="127.0.0.1,..." class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input v-bind:value="formObj.blockedIps" v-on:input="formObj.blockedIps = $event.target.value" placeholder="127.0.0.1,..." class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
                 
                 <div class="block pt-[20px]">
                 <button class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none" @click="changeState('formName')">&lt; BACK</button> 
@@ -86,6 +86,75 @@ const atState = ref("formName")
 function changeState(state) {
     atState.value = state
 }
+
+const formObj = {
+    name: null,
+    discordWebhook: null,
+    customWebhook: null,
+    guildedWebhook: null,
+    slackWebhook: null,
+    blockedIps: null,
+    successMessage: null,
+    backText: null,
+    backUrl: null,
+    titleText: null,
+    discordWebhookUsername: null,
+    discordWebhookAvatarUrl: null
+}
+
+function validateForm() {
+    if (formObj.name == null) {
+        return {
+            error: true,
+            message: "Please enter a name for your form."
+        }
+    }
+
+    if (!formObj.discordWebhook.startsWith("https://discordapp.com/api/webhooks/")) {
+        return {
+            error: true,
+            message: "Please enter a valid Discord Webhook URL."
+        }
+    }
+
+    if (!formObj.customWebhook.startsWith("https://")) {
+        return {
+            error: true,
+            message: "Please enter a valid Custom Webhook URL."
+        }
+    }
+
+    if (!formObj.guildedWebhook.startsWith("https://media.guilded.gg/")) {
+        return {
+            error: true,
+            message: "Please enter a valid Guilded Webhook URL."
+        }
+    }
+
+    if (!formObj.slackWebhook.startsWith("https://hooks.slack.com/")) {
+        return {
+            error: true,
+            message: "Please enter a valid Slack Webhook URL."
+        }
+    }
+
+    if (!formObj.backUrl.startsWith("https://")) {
+        return {
+            error: true,
+            message: "Please enter a valid Back URL."
+        }
+    }
+
+    return {
+        error: false
+    }
+}
+
+// debug
+setInterval(() => {
+    console.log(formObj)
+}, 7000)
+
 
 const plans = {
     0: "Basic",
