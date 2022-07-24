@@ -21,7 +21,7 @@
                      </div>
 
                 <div v-if="showTab == 'responses'">
-                    <Responses :form="form" :session="session" />
+                    <Responses :form="form" :responses="responses" :switchTab="switchTab" :session="session" />
                 </div>
 
                 <div v-else-if="showTab == 'setup'">
@@ -107,4 +107,28 @@ let form = null;
 if (session.value.forms) {
     form = session.value.forms.find(x=>x.formId == formId)
 }
+
+
+
+var responses = ref('not loaded')
+
+function setResponses(resp) {
+    responses.value = resp
+}
+
+var url = `https://api.formrocket.me/api/${form.formId}/responses`;
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+
+xhr.setRequestHeader("authorization", session.value.token);
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      setResponses(JSON.parse(xhr.responseText))
+      console.log(xhr.responseText)
+   }};
+
+xhr.send();
+
 </script>
