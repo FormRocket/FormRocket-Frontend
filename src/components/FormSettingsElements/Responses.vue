@@ -7,7 +7,7 @@
                 loading responses
                 </div>
 
-                <div v-for="response in responses" :key="response.responseId" class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                <div v-else v-for="response in responses" :key="response.responseId" class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
                     <h1 class="text-4xl mb-4">Response #1 <Icon icon="Paper" bulk size="35px" /></h1>
                     <div class="md:flex md:mb-5 mb-8">
                           <button class="settingsBarItem mr-3 px-4 py-1 bg-[#151515] hover:bg-[#151515] rounded-lg"><b>RESPONSE DATA</b></button>
@@ -33,6 +33,15 @@
 import Navbar from "@/components/Navbar.vue"
 import Icon from "@/iconly/iconly.vue"
 
+
+defineProps({
+    form: {
+        type: Object
+    },
+    session: {
+        type: Object
+    }
+})
 var responses = null
 
 var url = `https://api.formrocket.me/api/${form.formId}/responses`;
@@ -49,13 +58,4 @@ xhr.onreadystatechange = function () {
 
 xhr.send();
 
-
-defineProps({
-    form: {
-        type: Object
-    },
-    session: {
-        type: Object
-    }
-})
 </script>
