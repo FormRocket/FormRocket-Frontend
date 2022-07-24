@@ -10,8 +10,8 @@
         <Navbar :session="session" :showBack="true" :showDashboard="true" />
            <div class="appContent p-9">
                 <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
-                <h1 class="text-5xl mb-5 mt-2">Build a <span style="display:initial !important;"
-                    class="text-lg-gradient">New Form.</span> </h1>
+                <h1 class="text-5xl mb-3 mt-2">Build a <span style="display:initial !important;"
+                    class="text-lg-gradient">new form.</span> </h1>
                 <p>Start recieving submissions right away!</p>
                 
                 <div v-if="atState == 'formName'">
