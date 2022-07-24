@@ -98,6 +98,29 @@
     </div>
 </section>
 
+
+<!-- Section 1 -->
+<section class="py-24">
+    <div class="px-8 mx-auto max-w-7xl lg:px-16">
+        <h2 class="mb-4 text-xl font-bold md:text-3xl">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 gap-0 text-gray-100 md:grid-cols-2 md:gap-16">
+            <div>
+                <h5 class="mt-10 mb-3 font-semibold text-gray-300">What is FormRocket</h5>
+                <p>FormRocket is a complete backend for your HTML forms for storing submissions and getting notified with our integrations.</p>
+                <h5 class="mt-10 mb-3 font-semibold text-gray-300">Is it free?</h5>
+                <p>FormRocket is free for starters, and you can upgrade to our Premium and Business plans as your forms grow.</p>
+                
+            </div>
+            <div>
+                <h5 class="mt-10 mb-3 font-semibold text-gray-300">test</h5>
+                <p>lorem ipsum or some shit</p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <Footer />
 
         </div>
