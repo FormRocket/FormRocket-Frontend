@@ -112,8 +112,11 @@
                 
             </div>
             <div>
-                <h5 class="mt-10 mb-3 font-semibold text-gray-300">test</h5>
-                <p>lorem ipsum or some shit</p>
+                <h5 class="mt-10 mb-3 font-semibold text-gray-300">How do I set it up?</h5>
+                <p>You can set it up easily with the examples found in your form&apos;s settings.</p>
+
+                <h5 class="mt-10 mb-3 font-semibold text-gray-300">What prerequisites should I have?</h5>
+                <p>Everything can be done right from your HTML via a form element; No JavaScript!</p>
                 
             </div>
         </div>
