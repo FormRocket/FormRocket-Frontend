@@ -11,8 +11,8 @@
                     <p class="text-xl font-bold">No responses yet. Start by <a @click="switchTab('setup')" class="cursor-pointer hover:text-blue-500 text-blue-600">setting up your form</a>.</p>
                 </div>
 
-                <div v-else v-for="response in responses" :key="response.responseId" class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
-                    <h1 class="text-4xl mb-4">Response #1 <Icon icon="Paper" bulk size="35px" /></h1>
+                <div v-else v-for="(response, index) in responses" :key="response.responseId" class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-4">Response #{{index + 1}} <Icon icon="Paper" bulk size="35px" /></h1>
                    <!-- <div class="md:flex md:mb-5 mb-8">
                           <button class="settingsBarItem mr-3 px-4 py-1 bg-[#151515] hover:bg-[#151515] rounded-lg"><b>RESPONSE DATA</b></button>
                           <button class="settingsBarItem mr-3 px-4 py-1 hover:bg-[#151515] rounded-lg">SENDER DATA</button>
@@ -41,7 +41,7 @@
 
                 <div v-if="responses != 'not loaded' && responses[0]">
                 <div class="text-center" v-if="/*responses.length >= 25*/true">
-                    <button class="introductionButton mx-[5%] my-[3%] w-[90%] text-center bg-[#121212] cursor-pointer rounded-lg p-2 text-center">
+                    <button @click="fetchRespones" class="introductionButton mx-[5%] my-[3%] w-[90%] text-center bg-[#121212] cursor-pointer rounded-lg p-2 text-center">
                         LOAD MORE
                     </button>
                 </div>
@@ -55,25 +55,13 @@ import Icon from "@/iconly/iconly.vue"
 import {formatDistance} from "date-fns";
 import { ref, onMounted } from "vue"
 
-import Request from "@/services/request.js"
+import {request} from "@/services/request.js"
 
-let responses = ref({});
+let responses = ref([]);
 
 let isLoading = false;
 
 let lastResponseTimestamp = 0;
-
-async function fetchRespones(formId) {
-    if (isLoading) return;
-    const APIResponse = await Request({
-        url: `/api/${encodeURIComponent(formId)}/responses`,
-        method: "POST",
-        body: {
-            timestamp: lastResponseTimestamp
-        },
-        auth: true
-    })
-}
 
 const props = defineProps({
     form: {
@@ -86,11 +74,37 @@ const props = defineProps({
     switchTab: {}
 })
 
+async function fetchRespones() {
+    if (isLoading) return;
+    const APIResponse = await request({
+        url: `/api/${encodeURIComponent(props.formId)}/responses`,
+        method: "POST",
+        body: {
+            timestamp: lastResponseTimestamp
+        },
+        auth: true
+    })
+
+    if (APIResponse.status == 200) {
+        const lastElement = APIResponse.data[APIResponse.data.length - 1];
+        if (lastElement) {
+            lastResponseTimestamp = lastElement.createdAt;
+        }
+        if (Array.isArray(responses.value)) {
+            responses.value.push(...APIResponse.data)
+        } else {
+            responses.value = APIResponse.data
+        }
+    }
+
+    console.log(APIResponse)
+}
+
 onMounted(() => {
     lastResponseTimestamp = 0;
     responses.value = "not loaded";
     isLoading = false;
-    fetchRespones(props.formId);
+    fetchRespones();
 })
 
 function getBrowserFromUserAgent(userAgent) {
