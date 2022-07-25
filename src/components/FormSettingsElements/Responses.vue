@@ -96,8 +96,6 @@ async function fetchRespones() {
             responses.value = APIResponse.data
         }
     }
-
-    console.log(APIResponse)
 }
 
 onMounted(() => {
