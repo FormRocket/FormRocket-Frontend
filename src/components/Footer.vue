@@ -1,9 +1,11 @@
 <template>
-    <div class="text-gray-200 body-font">
-    <div class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
+    <div class="mt-9 text-gray-200 body-font">
+    <div class="container flex flex-col max-w-7xl sm:flex-row">
         <p class="text-xl leading-none text-gray-100 select-none logo">FormRocket</p>
         <p class="mt-4 text-sm text-gray-500 sm:pl-4 sm:mt-0">© 2022 FormRocket</p>
-        <span class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
+        <a href="/terms" class="ml-5 text-sm text-blue-600 hover:text-blue-500">Terms Of Service</a>
+        <a href="/terms" class="ml-5 text-sm text-blue-600 hover:text-blue-500">Privacy Policy</a>
+        <span class="inline-flex align-items-right justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
             <a href="https://www.twitter.com/@FormRocketTeam" class="text-gray-100 hover:text-gray-300">
                 <span class="sr-only">Twitter</span>
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

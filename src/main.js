@@ -7,6 +7,7 @@ import Error404 from './components/Error404.vue'
 import SetToken from './services/SetToken.vue'
 import NewForm from './components/NewForm.vue'
 import UserSettings from './components/UserSettings.vue'
+import Terms from "./components/Legal/ToS.vue";
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -23,6 +24,10 @@ const routes = [
     {
         path: '/settings/forms/:id',
         component: FormSettings
+    },
+    {
+        path: '/terms',
+        component: Terms
     },
     {
         path: '/new',

@@ -20,6 +20,7 @@
         <button class="hidden showMobile sidebarItem" @click="closeSidebar">Close</button>
         <button v-if="showBack" class="sidebarItem" @click="back">Back</button>
         <button v-if="showDashboard" class="sidebarItem" to="/" @click="$router.push('/')">Dashboard</button> 
+        <button v-if="showHome" class="sidebarItem" to="/" @click="$router.push('/')">Home</button> 
         <button v-if="showLogin" class="sidebarItem" @click="login">Login</button>
         <button v-if="showNewForm" class="sidebarItem" @click="$router.push('/new')">Create Form</button>
         <button v-if="showLogout" class="sidebarItem" @click="logout">Logout</button>
@@ -65,6 +66,7 @@ defineProps({
   showTrash: Boolean,
   showSubscriptions: Boolean,
   showPricing: Boolean,
-  showBack: Boolean
+  showBack: Boolean.apply,
+  showHome: Boolean.apply,
 })
 </script>

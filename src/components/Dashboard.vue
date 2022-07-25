@@ -32,6 +32,10 @@
                 </div>
             </div>-->
 
+            
+        <br class="mt-9 mb-9" />
+        <Footer />
+
 
             
         </div>
