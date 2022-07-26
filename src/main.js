@@ -8,6 +8,7 @@ import SetToken from './services/SetToken.vue'
 import NewForm from './components/NewForm.vue'
 import UserSettings from './components/UserSettings.vue'
 import Terms from "./components/Legal/ToS.vue";
+import SuccessPage from "./components/ThankYouPage/SuccessPage.vue";
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -40,6 +41,10 @@ const routes = [
     {
         path: '/:pathMatch(.*)',
         component: Error404
+    },
+    {
+        path: '/success',
+        component: SuccessPage
     }
 ]
 
