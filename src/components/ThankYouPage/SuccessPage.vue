@@ -4,7 +4,7 @@
     <h1 id="titleText" class="text-6xl mb-3"><span style="display:initial !important;" class="text-green-500">{{params.titleText}}</span></h1>
     <p id="message" class="text-xl mb-2">{{params.message}}</p> 
     <button @click="$router.push('/privacy')" type="button" class="text-white mt-2 bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-800  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Privacy Policy</button>
-    <button id="backText" onclick="history.back()" type="button" class="text-white mt-2 bg-pink-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{{params.backText}}</button>
+    <button id="backText" :onclick="(!params.backUrl ? 'history.back()' : `window.location.href = '${params.backUrl}'`)" type="button" class="text-white mt-2 bg-pink-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{{params.backText}}</button>
     <button @click="$router.push('/')" style="margin-right:2%;margin-bottom:2%;position:fixed;right:0px;bottom:0px;font-weight:900;" class="text-pink-600 p-3 bg-neutral-900 rounded-lg hover:bg-neutral-800" title="Create powerful forms right from your HTML without worrying about storing responses.">🚀 Powered by FormRocket</button>
         
     </div>
@@ -38,9 +38,12 @@ console.log(router.query)
                 }
 
                 if (backUrl) {
-                    /*document.getElementById('backText').onclick = function() {
-                         window.location.href = backUrl
-                    }*/
+                    // check if the url is valid
+                    if (backUrl.startsWith('http') || backUrl.startsWith('https')) {
+                        params.value.backUrl = backUrl
+                    } else {
+                        console.log('[warning] an invalid backUrl was specified, ignored.')
+                    }
                 }
 
                 if (titleText) {
