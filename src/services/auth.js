@@ -6,7 +6,67 @@ export const session = ref({ token: null, user: null});
 
 let isLoginProccesing = false;
 
-const tokenRegex = /^[0-9A-Fa-f]{64}$/;
+const numberRegex = /^\d*$/;
+const tokenRegex = /^[a-zA-Z0-9_-]*\.[a-zA-Z0-9_-]{43}$/;
+
+
+//   "In honor of AR"
+// - NSI, 2022
+
+// function ballSack(testicle1, testicle2) {
+//     var cemen = atob('♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂♂')
+//     return (testicle1 + testicle2) * 100 / cemen.length 
+// }
+
+// console.log(ballSack(69, 420))
+
+function _stringToUint8Array(string) {
+    var binary_string = string.replace(
+      /([\u0100-\uFFFF])/g,
+      (x) => "\\u" + x.charCodeAt().toString(16).padStart(4, "0")
+    );
+    var len = binary_string.length;
+    var bytes = new Uint8Array(len);
+    for (var i = 0; i < len; i++) {
+      bytes[i] = binary_string.charCodeAt(i);
+    }
+    return bytes;
+}
+
+class B64URL {
+    static encode(input) {
+        try {
+            return window.btoa(input).replace(/\+/g, '-').replace(/\//g, '_');
+        } catch {
+            return "";
+        }
+    }
+
+    static decode(input, returnRaw) {
+        try {
+            const result = window.atob(input.replace(/-/g, '+').replace(/_/g, '/'));
+            if (returnRaw) {
+                return _stringToUint8Array(result);
+            }
+            return result;
+        } catch {
+            return returnRaw ? new Uint8Array() : "";
+        }
+    }
+}
+
+
+function validateToken(token) {
+    if (!tokenRegex.test(token)) return false;
+    const parts = token.split(".");
+    const uid = B64URL.decode(parts[0]);
+    if (!numberRegex.test(uid)) return false;
+
+    const rid = B64URL.decode(parts[1], true);
+    if (rid.length !== 32) return false;
+
+    return true;
+}
 
 export async function login() {
     if (isLoginProccesing) return;
@@ -27,7 +87,7 @@ export async function login() {
 
 export function reloadAuth() {
     const token = localStorage.getItem("token");
-    if (tokenRegex.test(token)) {
+    if (validateToken(token)) {
         loading.value = true;
         request({
             url: "/api/users/@me?withForms=true",

@@ -118,17 +118,17 @@ function changeState(state) {
 }
 
 const formObj = {
-    formName: null,
-    discordWebhook: null,
-    customWebhook: null,
-    slackWebhook: null,
-    blockedIps: null,
+    formName: "",
+    discordWebhook: "",
+    customWebhook: "",
+    slackWebhook: "",
+    blockedIps: "",
     successMessage: "This form has been submitted successfully! You may close this window now.",
     backText: "Back",
-    backUrl: null,
+    backUrl: "",
     titleText: "Thank you!",
-    discordWebhookUsername: null,
-    discordWebhookAvatarUrl: null
+    discordWebhookUsername: "",
+    discordWebhookAvatarUrl: ""
 }
 
 function validateForm() {
