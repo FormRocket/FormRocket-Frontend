@@ -44,9 +44,6 @@
                 <h1 class="text-2xl mt-4">Discord</h1>
                 <input v-bind:value="formObj.discordWebhook" v-on:input="formObj.discordWebhook = $event.target.value" placeholder="Discord Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
-                <h1 class="text-2xl mt-4">Guilded</h1>
-                <input v-bind:value="formObj.guildedWebhook" v-on:input="formObj.guildedWebhook = $event.target.value" placeholder="Guilded Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
-
                 <h1 class="text-2xl mt-4">Slack</h1>
                 <input v-bind:value="formObj.slackWebhook" v-on:input="formObj.slackWebhook = $event.target.value" placeholder="Slack Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
@@ -124,7 +121,6 @@ const formObj = {
     formName: null,
     discordWebhook: null,
     customWebhook: null,
-    guildedWebhook: null,
     slackWebhook: null,
     blockedIps: null,
     successMessage: "This form has been submitted successfully! You may close this window now.",
@@ -144,7 +140,7 @@ function validateForm() {
         }
     }
 
-    if (formObj.discordWebhook && !formObj.discordWebhook.startsWith("https://discordapp.com/api/webhooks/")) {
+    if (formObj.discordWebhook && !formObj.discordWebhook.startsWith("https://discord.com/api/webhooks/")) {
         return {
             error: true,
             message: "Please enter a valid Discord Webhook URL.",
@@ -156,14 +152,6 @@ function validateForm() {
         return {
             error: true,
             message: "Please enter a valid Custom Webhook URL.",
-            state: "integrations"
-        }
-    }
-
-    if (formObj.guildedWebhook && !formObj.guildedWebhook.startsWith("https://media.guilded.gg/")) {
-        return {
-            error: true,
-            message: "Please enter a valid Guilded Webhook URL.",
             state: "integrations"
         }
     }

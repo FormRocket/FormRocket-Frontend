@@ -76,25 +76,32 @@ const props = defineProps({
 
 async function fetchRespones() {
     if (isLoading) return;
-    const APIResponse = await request({
-        url: `/api/${encodeURIComponent(props.formId)}/responses`,
-        method: "POST",
-        body: {
-            timestamp: lastResponseTimestamp
-        },
-        auth: true
-    })
+    isLoading = true;
+    try {
+        const APIResponse = await request({
+            url: `/api/${encodeURIComponent(props.formId)}/responses`,
+            method: "POST",
+            body: {
+                timestamp: lastResponseTimestamp
+            },
+            auth: true
+        })
 
-    if (APIResponse.status == 200) {
-        const lastElement = APIResponse.data[APIResponse.data.length - 1];
-        if (lastElement) {
-            lastResponseTimestamp = lastElement.createdAt;
+        if (APIResponse.status == 200) {
+            const lastElement = APIResponse.data[APIResponse.data.length - 1];
+            if (lastElement) {
+                lastResponseTimestamp = lastElement.createdAt;
+            }
+            if (Array.isArray(responses.value)) {
+                responses.value.push(...APIResponse.data)
+            } else {
+                responses.value = APIResponse.data
+            }
         }
-        if (Array.isArray(responses.value)) {
-            responses.value.push(...APIResponse.data)
-        } else {
-            responses.value = APIResponse.data
-        }
+
+        isLoading = false;
+    } catch {
+        isLoading = false;
     }
 }
 
