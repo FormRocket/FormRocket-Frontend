@@ -42,7 +42,9 @@ let formObj = JSON.parse(JSON.stringify(props.form))
 async function deleteForm() {
     console.log('[EVENT] deleteForm: sending request...', formObj)
     let res = await request({
-       
+        auth: true,
+        method: 'DELETE',
+        url: `/api/forms/${formObj.id}`
     })
 
     if (res.status == 200) {
