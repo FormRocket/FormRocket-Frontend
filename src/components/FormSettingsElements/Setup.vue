@@ -6,22 +6,14 @@
                     <h1 class="text-4xl mb-2">HTML</h1>
                 <pre>
 <code>&lt;form action="https://api.formrocket.me/api/submit/{{form.formId}}" method="POST"&gt;
-    &lt;input type="text" name="username" value="Enter username" /&gt;
+    &lt;input type="text" name="username" value="cool username" /&gt;
 &lt;/form&gt;</code>
                 </pre>
 
                 </div>
 
-                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
-                    <h1 class="text-4xl mb-2">Python</h1>
-                <pre>
-<code>aw hell nah ali really thought 💀</code>
-                </pre>
-
-                </div>
-
-                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
-                    <h1 class="text-4xl mb-2">Client-side JS</h1>
+                  <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">Javascript</h1>
                 <pre>
 <code>function submitForm() {
     const data = {
@@ -39,6 +31,81 @@
                 </pre>
 
                 </div>
+
+                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">Lua</h1>
+                <pre>
+<code>local HttpService = game:GetService("HttpService")
+
+function submitForm() {
+  local data = {
+    username = "cool username"
+  }
+
+  local json = HttpService:JSONEncode(data)
+
+  HttpService:PostAsync(
+    "https://api.formrocket.me/api/submit/{{form.formId}}",
+    json,
+    Enum.HttpContentType.ApplicationJson,
+    false
+  )
+}</code>
+                </pre>
+                </div>
+
+
+                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">Python</h1>
+                <pre>
+<code>
+import requests
+
+data = {
+    'username': 'cool username'
+}
+
+r = requests.post('https://api.formrocket.me/api/submit/{{form.formId}}', data=data)
+</code>
+                </pre>
+                </div>
+               
+                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">PHP</h1>
+                <pre>
+<code>
+&lt;?php
+$data = array(
+    'username' => 'Enter username'
+);
+
+$r = requests.post('https://api.formrocket.me/api/submit/{{form.formId}}', data=$data)
+?&gt;
+</code>
+                </pre>
+                </div>
+                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">Ruby</h1>
+                <pre>
+<code>
+require 'net/http'
+require 'uri'
+
+data = {
+    'username': 'cool username'
+}
+
+uri = URI.parse('https://api.formrocket.me/api/submit/{{form.formId}}')
+http = Net::HTTP.new(uri.host, uri.port)
+request = Net::HTTP::Post.new(uri.request_uri)
+request.set_form_data(data)
+response = http.request
+</code>
+                </pre>
+
+                </div>
+
+              
                 
 
                 
