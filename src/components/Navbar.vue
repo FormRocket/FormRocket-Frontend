@@ -5,8 +5,8 @@
         -->
     <div class="flex justify-between items-center h-full">
       <div class="flex items-center">
-        <img class="w-8 h-8 mr-2 rounded-lg" v-if="!session?.user || session?.user?.plan < 1" src="src/assets/formrocket.png" />
-        <img class="w-8 h-8 mr-2 rounded-lg" v-if="session?.user?.plan >= 1" style="filter: hue-rotate(40deg)" src="src/assets/formrocket.png" />
+        <img class="w-8 h-8 mr-2 rounded-lg" v-if="!session?.user || session?.user?.plan < 1" src="/assets/formrocket.png" />
+        <img class="w-8 h-8 mr-2 rounded-lg" v-if="session?.user?.plan >= 1" style="filter: hue-rotate(40deg)" src="/assets/formrocket.png" />
       </div>
       <button @click="toggleSidebar" :class="'hidden' + (showSidebar ? '' : ' showMobile')">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
