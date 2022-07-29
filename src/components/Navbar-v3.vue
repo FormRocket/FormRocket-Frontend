@@ -5,7 +5,7 @@
         -->
     <div class="flex justify-between items-center h-full">
       <div class="flex items-center">
-        <img class="w-8 h-8 mr-2" src="https://www.formrocket.me/files/formrocket.png" />
+        <img class="w-8 h-8 mr-2" src="src/assets/formrocket.png" />
         <span class="text-2xl font-bold">FormRocket <span v-if="plan">{{ plan }}</span></span>
       </div>
 
