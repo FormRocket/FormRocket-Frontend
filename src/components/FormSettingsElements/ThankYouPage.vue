@@ -5,19 +5,19 @@
 
                 <h1 class="text-3xl mt-4">Title Text</h1>
                 <p class="mt-2">Set the title that appears on the thank you page.</p>
-                <input v-bind:value="formObj.titleText" v-on:input="formObj.titleText = $event.target.value" placeholder="Thank you!" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input :value="formObj.titleText" v-on:input="formObj.titleText = $event.target.value" placeholder="Thank you!" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <h1 class="text-3xl mt-4">Success Message</h1>
                 <p class="mt-2">Set the message that appears on the thank you page.</p>
-                <input v-bind:value="formObj.successMessage" v-on:input="formObj.successMessage = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input :value="formObj.successMessage" v-on:input="formObj.successMessage = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <h1 class="text-3xl mt-4">Back Text</h1>
                 <p class="mt-2">Set the text that appears on the Back button.</p>
-                <input v-bind:value="formObj.backText" v-on:input="formObj.backText = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input :value="formObj.backText" v-on:input="formObj.backText = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <h1 class="text-3xl mt-4 mb-3">Back URL</h1>
                 <p class="mt-2">Defaults to the browsers default back action.</p>
-                <input placeholder="Back URL" v-bind:value="formObj.backUrl" v-on:input="formObj.backUrl = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input placeholder="Back URL" :value="formObj.backUrl" v-on:input="formObj.backUrl = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
                 
 
 

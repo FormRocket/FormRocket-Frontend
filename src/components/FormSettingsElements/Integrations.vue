@@ -5,16 +5,16 @@
 
                 <h1 class="text-3xl mt-4">Discord</h1>
                 <p class="mt-2">Connect your form to a Discord channel.</p>
-                <input v-bind:value="null" v-on:input="formObj.discordWebhook = $event.target.value" placeholder="Discord Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+                <input :value="formObj.discordWebhook" v-on:input="formObj.discordWebhook = $event.target.value" placeholder="Discord Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <h1 class="text-3xl mt-4">Slack (Business Plan)</h1>
                 <p class="mt-2">Connect your form to a Slack room. Requires the business plan.</p>
                 <p class="mt-2">You can find your Slack webhook URL from the Incoming WebHook Slack app.</p>
-                <input v-bind:value="formObj.slackWebhook" v-on:input="formObj.slackWebhook = $event.target.value" :placeholder="session.user.plan >= 2 ? 'Slack Webhook URL' : 'Business Plan Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 2 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 2 ? false : true" />
+                <input :value="formObj.slackWebhook" v-on:input="formObj.slackWebhook = $event.target.value" :placeholder="session.user.plan >= 2 ? 'Slack Webhook URL' : 'Business Plan Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 2 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 2 ? false : true" />
 
                 <h1 class="text-3xl mt-4">Custom Server (Premium)</h1>
                 <p class="mt-2">Connect your form to a custom server. Requires the premium plan.</p>
-                <input v-bind:value="formObj.customWebhook" v-on:input="formObj.customWebhook = $event.target.value" :placeholder="session.user.plan >= 1 ? 'Custom Server URL' : 'Premium Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 1 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 1 ? false : true"  />
+                <input :value="formObj.customWebhook" v-on:input="formObj.customWebhook = $event.target.value" :placeholder="session.user.plan >= 1 ? 'Custom Server URL' : 'Premium Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 1 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 1 ? false : true"  />
                 
                 <button class="block pt-[20px]">
                     <button @click="saveForm" :style="((formObj == form) ? 'opacity:50%;cursor:not-allowed!important;' : '')" :class="'block introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none' + ((formObj == form) ? ' cursor-not-allowed' : '')">SAVE</button>

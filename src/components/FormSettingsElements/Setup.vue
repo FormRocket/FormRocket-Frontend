@@ -4,24 +4,42 @@
                 <p>Connect your frontend to this form and start using the most powerful form backend.</p>
                 <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
                     <h1 class="text-4xl mb-2">HTML</h1>
-                    <div class="md:flex md:mb-5 mb-8">
-                          <button @click="setHtmlState('code')" :class="'settingsBarItem mr-3 px-4 py-1 hover:bg-[#151515] rounded-lg' + (htmlState == 'code' ? ' bg-[#151515] font-bold' : '')">CODE</button>
-                          
-                          <button @click="setHtmlState('preview')" :class="'settingsBarItem mr-3 px-4 py-1 hover:bg-[#151515] rounded-lg' + (htmlState == 'preview' ? ' bg-[#151515] font-bold' : '')">PREVIEW</button>
-
-                     </div>
-                    <div v-if="htmlState == 'code'">
                 <pre>
 <code>&lt;form action="https://api.formrocket.me/api/submit/{{form.formId}}" method="POST"&gt;
     &lt;input type="text" name="username" value="Enter username" /&gt;
 &lt;/form&gt;</code>
                 </pre>
+
                 </div>
 
-                <div v-else-if="htmlState == 'preview'">
-                    
+                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">Python</h1>
+                <pre>
+<code>aw hell nah ali really thought 💀</code>
+                </pre>
+
                 </div>
+
+                <div class="bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
+                    <h1 class="text-4xl mb-2">Client-side JS</h1>
+                <pre>
+<code>function submitForm() {
+    const data = {
+        username: "cool username"
+    }
+
+    fetch('https://api.formrocket.me/api/submit/{{form.formId}}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+}</code>
+                </pre>
+
                 </div>
+                
 
                 
 
