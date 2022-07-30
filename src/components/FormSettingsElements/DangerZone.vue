@@ -74,7 +74,6 @@ if (props.form.locked) {
     lockAction.value = "unlock"
 } 
 
-
 let formObj = JSON.parse(JSON.stringify(props.form)) 
 
 async function deleteForm() {
