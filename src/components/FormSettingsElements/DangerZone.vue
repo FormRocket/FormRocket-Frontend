@@ -56,15 +56,15 @@ async function deleteForm() {
 
 
 async function toggleLockForm() {
-    var action = "lock"
-    if (props.form?.locked) {
-        toLock = "unlock"
+    var action = ref("lock")
+    if (formObj?.locked) {
+        action.value = "unlock"
     }
     console.log('[EVENT] toggleLockForm: sending request...', formObj)
     let res = await request({
        auth: true,
        method: "POST",
-        url: "/api/forms/" + formObj.formId + "/" + action
+        url: "/api/forms/" + formObj.formId + "/" + action.value
     })
 
     if (res.status == 200) {
