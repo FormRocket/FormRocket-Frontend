@@ -22,7 +22,9 @@ const extensionContentType = {
     "css": "text/css",
     "js": "text/javascript",
     "html": "text/html",
-    "ico": "image/x-icon"
+    "ico": "image/x-icon",
+    "svg": "image/svg+xml",
+    "png": "image/png"
 }
 
 function sendResponse(res, file) {
