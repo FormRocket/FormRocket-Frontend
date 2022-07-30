@@ -44,7 +44,7 @@ async function deleteForm() {
     let res = await request({
         auth: true,
         method: 'DELETE',
-        url: `/api/forms/${formObj.id}`
+        url: `/api/forms/${formObj.formId}`
     })
 
     if (res.status == 200) {
@@ -64,7 +64,7 @@ async function toggleLockForm() {
     let res = await request({
        auth: true,
        method: "POST",
-        url: "/api/forms/" + formObj.id + "/" + action
+        url: "/api/forms/" + formObj.formId + "/" + action
     })
 
     if (res.status == 200) {
