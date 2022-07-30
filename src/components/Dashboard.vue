@@ -2,6 +2,7 @@
     <template v-if="session.user">
         <Navbar :session="session" :showLogout="true" :showNewForm="true" />
         <div class="p-10 appContent">
+            <div>
             <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
             <h1 class="text-5xl mb-3 mt-2">Welcome, <span style="display:initial !important;"
                     class="text-lg-gradient">{{ session.user.name }}!</span></h1>
@@ -31,7 +32,7 @@
                     <Card :title="'Example organization'" :text="'4 forms'" :href="'/organizations/123'" />
                 </div>
             </div>-->
-
+        </div>
             
         <br class="mt-9 mb-9" />
         <Footer />

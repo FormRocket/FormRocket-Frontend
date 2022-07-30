@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-9 text-gray-200 body-font">
+    <div class="footer text-gray-200 body-font">
     <div class="container flex flex-col max-w-7xl sm:flex-row">
         <p class="text-xl leading-none text-gray-100 select-none logo">FormRocket</p>
         <p class="mt-4 text-sm text-gray-500 sm:pl-4 sm:mt-0">© 2022 FormRocket</p>

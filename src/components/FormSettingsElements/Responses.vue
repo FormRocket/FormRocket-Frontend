@@ -3,6 +3,11 @@
    <h1 class="text-5xl mb-5"><span style="display:initial !important;" class="text-lg-gradient">{{form.name}}:</span> Responses </h1>
                 <p>View and manage this form&apos;s responses.</p>
 
+                <div v-if="form.locked">
+                    <h1 class="text-3xl mt-8 mb-2">Your form is locked!</h1>
+                    <p>Unlock your form to recieve new submissions!</p>
+                </div>
+
                 <div v-if="responses === 'not loaded'">
                    <p class="text-center m-9 text-xl font-bold">Loading...</p>
                 </div>
