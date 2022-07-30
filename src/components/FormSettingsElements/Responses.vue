@@ -42,7 +42,7 @@
                 <div v-if="responses != 'not loaded' && responses[0]">
                 <div class="text-center" v-if="/*responses.length >= 25*/true">
                     <button @click="fetchRespones" class="introductionButton mx-[5%] my-[3%] w-[90%] text-center bg-[#121212] cursor-pointer rounded-lg p-2 text-center">
-                        LOAD MORE
+                        {{!isLoading ? "LOAD MORE" : "LOADING..." }}
                     </button>
                 </div>
                 </div>
