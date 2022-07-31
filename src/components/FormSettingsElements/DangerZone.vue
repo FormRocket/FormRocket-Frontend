@@ -51,7 +51,7 @@
                 <div v-else>
                     <h1 class="text-3xl mt-6">Are you sure?</h1>
                 <p class="mt-2">This action cannot be reversed!</p>
-                <button @click="cancelConfirmDelete" :class="'mt-[20px] initial introductionButton text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 bg-[#111111] focus:outline-none'">
+                <button @click="cancelConfirmDelete" :class="'mt-[20px] initial introductionButton text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 bg-[#222222] focus:outline-none'">
                     CANCEL
                 </button>
                     <button v-if="isDeleteLoading" :class="'px-9 initial introductionButton ml-3 text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 bg-red-500 focus:outline-none'">
