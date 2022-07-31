@@ -8,7 +8,7 @@
                 <div v-if="!confirmDelete">
                 <h1 class="text-3xl mt-6">Delete Form</h1>
                 <p class="mt-2">Permanently delete this form and all responses associated with it.</p>
-                <button @click="showConfirmDelete" :class="'mt-[20px] px-8 block introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-500 focus:outline-none'">
+                <button @click="showConfirmDelete" :class="'mt-[20px] px-6 block introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-red-500 focus:outline-none'">
                     DELETE
                 </button>
                 <!--<div v-if="isDeleteLoading">
