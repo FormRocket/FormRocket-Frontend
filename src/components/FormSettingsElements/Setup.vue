@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="break-words bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
-                    <h1 class="text-4xl mb-2">Lua</h1>
+                    <h1 class="text-4xl mb-2">Roblox Lua</h1>
                 <pre>
 <code>local HttpService = game:GetService("HttpService")
 
