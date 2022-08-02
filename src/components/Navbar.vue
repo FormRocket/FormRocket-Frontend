@@ -28,10 +28,15 @@
         <button v-if="showPricing" class="sidebarItem" @click="$router.push('/pricing')">Pricing</button>
     </div>
     <div class="profileContainer" v-if="session?.user">
-        <img class="profileAvatar" :src="session.user.avatar + '&s=50'" />
+       <!-- <img class="profileAvatar" :src="session.user.avatar + '&s=50'" /> -->
         <div class="profileInfo">
-            <div class="profileInfo-name">{{session.user.name}}</div>
-            <a class="profileInfo-btn cursor-pointer" @click="$router.push('/settings')">Settings</a>
+            <div class="profileInfo-name" style="display:initial;"><span class="text-md text-lg-gradient" style="display:initial;">{{session.user.name}}</span>
+            <div><a class="text-[#888888] cursor-pointer" @click="$router.push('/settings')" style="font-size:13px;">Settings</a> <a class="ml-2 text-[#666666] cursor-pointer" @click="logout" style="font-size:13px;">Log Out</a></div>
+            </div>
+             
+            
+
+            <!--<a class="profileInfo-btn cursor-pointer initial" @click="$router.push('/settings')">Settings</a>-->
         </div>
     </div>
   </div>
@@ -40,6 +45,7 @@
 <script setup>
 import { ref } from 'vue'
 import { login, logout } from '@/services/auth.js'
+import Icon from "@/iconly/iconly.vue";
 
 const showSidebar = ref(false);
 

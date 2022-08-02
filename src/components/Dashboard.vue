@@ -46,18 +46,17 @@
         <div class="p-10 appContent">
 <div class="h-auto">
     <center>
-    <div class="px-10 py-24 mx-auto max-w-7xl">
-        <div class="w-full mx-auto text-left text-center">
-            <div class="flex flex-row justify-center">
-                <h1 class="mb-6 text-5xl font-extrabold leading-none max-w-5xl mx-auto tracking-normal sm:text-6xl md:text-6xl lg:text-7xl md:tracking-tight"> Introducing <span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 lg:inline">the all new</span> <br class="lg:block hidden"> FormRocket3. </h1>
-            </div>
-
-            <div class="flex flex-row justify-center">
-                <p class="px-0 mb-6 text-lg text-gray-300 md:text-xl lg:px-24"> A powerful backend for all your HTML forms. Recieve submissions &amp; send to your favorite destinations. </p>
-            </div>
+    <div class="px-10 py-9 mx-auto max-w-7xl">
+        <div class="w-full mx-auto text-left">
+            <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET</h4>
+                <h1 class="mb-6 text-5xl font-extrabold max-w-5xl sm:text-6xl md:text-6xl lg:text-6xl"> Introducing <span class="w-full text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-pink-600 lg:inline">the all new</span> <br class="lg:block hidden"> FormRocket3. </h1>
             
-            <div class="flex flex-row justify-center introductionButtons">
-                <div><button @click="login" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-700 focus:outline-none">GET STARTED</button></div>
+
+                <p class="mb-6 text-lg text-gray-300 md:text-xl">A powerful backend for all your HTML forms. Recieve submissions &amp; send to your favorite destinations. </p>
+        
+            
+            <div class="flex flex-row introductionButtons">
+                <div><button @click="login" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 focus:outline-none">GET STARTED</button></div>
                 <router-link to="/pricing"><button class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">PRICING</button></router-link>
             </div>
 
@@ -81,7 +80,7 @@
                 Free storage for your submissions
             </h2>
             <p class="pt-4 pb-8 m-0 leading-7 text-gray-300 border-0 border-gray-300 sm:pr-12 xl:pr-32 lg:text-lg">
-                Store 500 responses for free and send them to your favorite destinations.    
+                Store up to 500 responses for free per form, or buy additional space for your projects.   
             </p>
         </div>
     </div>
@@ -92,7 +91,7 @@
                 Instant plug and play
             </h2>
             <p class="pt-4 pb-8 m-0 leading-7 text-gray-300 border-0 border-gray-300 sm:pr-10 lg:text-lg">
-                Create forms in seconds &amp; recieve submissions instantly.
+                Create forms in seconds &amp; recieve submissions instantly. Minimal setup required. 
             </p>
             
         </div>
