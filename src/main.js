@@ -10,6 +10,7 @@ import UserSettings from './components/UserSettings.vue'
 import Terms from "./components/Legal/ToS.vue";
 import SuccessPage from "./components/ThankYouPage/SuccessPage.vue";
 import Signup from "./components/Signup.vue";
+import Signin from './components/Signin.vue'
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -26,6 +27,10 @@ const routes = [
     {
         path: "/signup",
         component: Signup
+    },
+    {
+        path: "/signin",
+        component: Signin
     },
     {
         path: '/settings/forms/:id',

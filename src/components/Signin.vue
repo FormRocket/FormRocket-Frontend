@@ -27,16 +27,10 @@
 
                     <div class="w-full lg:w-6/12 xl:w-5/12">
                         <div class="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
-                            <h4 class="w-full text-3xl font-bold">Sign up</h4>
-                            <p class="text-lg text-gray-500">Already have an account? <router-link to="/signin"
-                                    class="text-pink-500 cursor-pointer hover:text-pink-400">Sign in</router-link>.</p>
+                            <h4 class="w-full text-3xl font-bold">Sign in</h4>
+                            <p class="text-lg text-gray-500">Don't have an account? <router-link to="/signup"
+                                    class="text-pink-500 cursor-pointer hover:text-pink-400">Sign up</router-link>.</p>
                             <div class="relative w-full mt-10 space-y-8">
-                                <div class="relative">
-                                    <label class="font-medium text-gray-400">Name</label>
-                                    <input v-model="username" type="text"
-                                        class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
-                                        placeholder="Name">
-                                </div>
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Email</label>
                                     <input v-model="email" type="text"
@@ -51,7 +45,7 @@
                                 </div>
                                 <div class="relative">
                                     <button @click="submit"
-                                        class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">Create Account</button>
+                                        class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">Sign in</button>
                                 </div>
                             </div>
                         </div>
@@ -71,9 +65,7 @@ import { reloadAuth } from '@/services/auth.js'
 const router = useRouter();
 
 const email = ref("");
-const username = ref("");
 const password = ref("");
-
 
 if (session?.value?.user) {
     router.push('/')
@@ -85,10 +77,9 @@ async function submit() {
     if (isLoading) return;
     isLoading = true;
     const response = await request({
-        url: "/api/auth/register",
+        url: "/api/auth/login",
         method: "POST",
         body: {
-            name: username.value,
             email: email.value,
             password: password.value
         }

@@ -55,12 +55,10 @@
 </template>
 
 <script setup>
-import Navbar from "@/components/Navbar.vue"
 import Icon from "@/iconly/iconly.vue"
-import {formatDistance} from "date-fns";
+import { formatDistance } from "date-fns";
 import { ref, onMounted } from "vue"
-
-import {request} from "@/services/request.js"
+import { request } from "@/services/request.js"
 
 let responses = ref([]);
 

@@ -56,7 +56,7 @@
         
             
             <div class="flex flex-row introductionButtons">
-                <div><button @click="login" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 focus:outline-none">GET STARTED</button></div>
+                <div><button @click="$router.push('/signup')" class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-pink-600 focus:outline-none">GET STARTED</button></div>
                 <router-link to="/pricing"><button class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none">PRICING</button></router-link>
             </div>
 

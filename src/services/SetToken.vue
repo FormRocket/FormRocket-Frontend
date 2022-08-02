@@ -1,5 +1,8 @@
+<template>
+<div>GitHub Auth Deprecated</div>
+</template>
 <script setup>
-import { reloadAuth } from '@/services/auth.js'
+/*import { reloadAuth } from '@/services/auth.js'
 import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
@@ -9,5 +12,5 @@ if (route.query.token && (!window.localStorage.getItem("token"))) {
     reloadAuth();
 }
 
-router.push("/")
+router.push("/")*/
 </script>
