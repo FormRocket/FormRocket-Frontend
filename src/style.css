@@ -23,6 +23,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+input {
+  background-color: #2b2a33;
+}
+
 .introductionButton:active,
 .settingsBarItem:active {
   transform: scale(0.87) !important;
