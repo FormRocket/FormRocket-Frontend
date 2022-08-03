@@ -15,13 +15,17 @@
                 <p>Manage your FormRocket Account.</p>
 
                 
-                <h1 class="text-4xl mt-8 mb-2">Username <Icon icon="User2" bulk size="35px" /></h1>
+                <h1 class="text-4xl mt-8 mb-2">Name <Icon icon="User2" bulk size="35px" /></h1>
                 <p>This field cannot be modified.</p>
                 <input disabled :value="session.user.name" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <h1 class="text-4xl mt-8 mb-2">User ID <Icon icon="Info-Square" bulk size="35px" /></h1>
                 <p>This field cannot be modified.</p>
                 <input disabled :value="session.user.id" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
+
+                <h1 class="text-4xl mt-8 mb-2">Email <Icon icon="Message" bulk size="35px" /></h1>
+                <p>This field cannot be modified.</p>
+                <input disabled :value="session.user.email" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
                 <h1 class="text-4xl mt-8 mb-2">Plan <Icon icon="Bag-2" bulk size="35px" /></h1>
                 <p>Your current FormRocket plan. This can be managed from <a class="text-blue-600 cursor-pointer hover:text-blue-500" @click="$router.push('/subscriptions')">here</a>.</p>
