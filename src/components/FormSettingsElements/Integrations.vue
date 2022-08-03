@@ -65,7 +65,19 @@ async function saveForm() {
         swal("Success!", "Form updated successfully", "success")
         props.form = formObj
     } else {
-        swal("Oops!", "Something went wrong ["+ res.status +"]", "error")
+        if (res.data.error.detail) {
+            swal("Oops!", res.data.error.detail, "error")
+        } else if (res.data.error.data) {
+            if (res.data.error.data == 'Internal Database Error') {
+                swal("Oops!", "There's nothing to change!", "error")
+            } else {
+                swal("Oops!", res.data.error.data, "error")
+            }
+        } else if (res.data.error.message) {
+            swal("Oops!", res.data.error.message, "error")
+        } else {
+            swal("Oops!", "Something went wrong", "error")
+        }
     }
     
 }
