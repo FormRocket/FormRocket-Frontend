@@ -15,10 +15,10 @@
                                     <h4
                                         class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">
                                         FORMROCKET</h4>
-                                    <h1 class="text-5xl font-bold text-gray-300 xl:text-6xl">Welcome to <span
+                                    <h1 class="text-5xl font-bold text-gray-300 xl:text-6xl">Welcome back to <span
                                             style="display:initial!important;"
                                             class="text-lg-gradient">FormRocket.</span></h1>
-                                    <p class="text-2xl text-gray-400 mt-4">Let's get you started on the most powerful
+                                    <p class="text-2xl text-gray-400 mt-4">Let's get you logged back onto the most powerful
                                         HTML form backend!</p>
                                 </div>
                             </div>
@@ -31,6 +31,7 @@
                             <p class="text-lg text-gray-500">Don't have an account? <router-link to="/signup"
                                     class="text-pink-500 cursor-pointer hover:text-pink-400">Sign up</router-link>.</p>
                             <div class="relative w-full mt-10 space-y-8">
+                                <form>
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Email</label>
                                     <input v-model="email" type="text"
@@ -47,6 +48,7 @@
                                     <button @click="submit"
                                         class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">Sign in</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
