@@ -4,13 +4,13 @@ import App from './App.vue'
 import Dashboard from './components/Dashboard.vue'
 import FormSettings from './components/FormSettings.vue'
 import Error404 from './components/Error404.vue'
-import SetToken from './services/SetToken.vue'
 import NewForm from './components/NewForm.vue'
 import UserSettings from './components/UserSettings.vue'
 import Terms from "./components/Legal/ToS.vue";
 import SuccessPage from "./components/ThankYouPage/SuccessPage.vue";
 import Signup from "./components/Signup.vue";
-import Signin from './components/Signin.vue'
+import Signin from './components/Signin.vue';
+import Verify from './services/Verify.vue'
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -19,10 +19,6 @@ const routes = [
     {
         path: "/",
         component: Dashboard
-    },
-    {
-        path: "/setToken",
-        component: SetToken
     },
     {
         path: "/signup",
@@ -55,6 +51,10 @@ const routes = [
     {
         path: '/success',
         component: SuccessPage
+    },
+    {
+        path: '/verify/:token',
+        component: Verify
     }
 ]
 
