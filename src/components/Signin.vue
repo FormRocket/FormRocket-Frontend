@@ -31,24 +31,23 @@
                             <p class="text-lg text-gray-500">Don't have an account? <router-link to="/signup"
                                     class="text-pink-500 cursor-pointer hover:text-pink-400">Sign up</router-link>.</p>
                             <div class="relative w-full mt-10 space-y-8">
-                                <form>
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Email</label>
                                     <input v-model="email" type="text"
                                         class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
-                                        placeholder="Email Address">
+                                        placeholder="Email Address" @keydown.enter="submit">
                                 </div>
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Password</label>
-                                    <input v-model="password" type="password"
+                                    <input v-model="password" @keydown.enter="submit" type="password"
                                         class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
                                         placeholder="Password">
                                 </div>
                                 <div class="relative">
-                                    <button @click="submit"
-                                        class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">Sign in</button>
+                                    <button
+                                        @click="submit"
+                                        class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">{{!isLoading ? "SIGN IN" : "LOADING..."}}</button>
                                 </div>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -73,11 +72,36 @@ if (session?.value?.user) {
     router.push('/')
 }
 
-let isLoading = false;
+let isLoading = ref(false);
+
+// validate email and password
+function validate() {
+    if (email.value.length < 1) {
+        swal("Error", "Please enter your email address.", "error");
+        return false;
+    }
+    if (password.value.length < 1) {
+        swal("Error", "Please enter your password.", "error");
+        return false;
+    } 
+    if (!email.value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        swal("Error", "Please enter a valid email address.", "error");
+        return false;
+    } 
+    if (password.value.length < 8 || password.value.length > 30) {
+        swal("Error", "Password must be between 8 and 30 characters.", "error");
+        return false;
+    }
+    return true;
+}
 
 async function submit() {
-    if (isLoading) return;
-    isLoading = true;
+    var valid = validate();
+    if (!valid) {
+        return;
+    }
+    if (isLoading.value) return;
+    isLoading.value = true;
     const response = await request({
         url: "/api/auth/login",
         method: "POST",
@@ -88,8 +112,8 @@ async function submit() {
     })
 
     if (response.status != 200) {
-        swal("Oops!", "Something went wrong ["+ response.status +"]", "error");
-        isLoading = false;
+        swal("Error!", response.data.error.data, "error");
+        isLoading.value = false;
     } else {
         window.localStorage.setItem("token", response.data.token);
         reloadAuth();

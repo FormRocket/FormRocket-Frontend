@@ -33,25 +33,25 @@
                             <div class="relative w-full mt-10 space-y-8">
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Name</label>
-                                    <input v-model="username" type="text"
+                                    <input v-model="username" type="text" @keydown.enter="submit"
                                         class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
                                         placeholder="Name">
                                 </div>
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Email</label>
-                                    <input v-model="email" type="text"
+                                    <input v-model="email" type="text" @keydown.enter="submit"
                                         class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
                                         placeholder="Email Address">
                                 </div>
                                 <div class="relative">
                                     <label class="font-medium text-gray-400">Password</label>
-                                    <input v-model="password" type="password"
+                                    <input v-model="password" type="password" @keydown.enter="submit"
                                         class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
                                         placeholder="Password">
                                 </div>
                                 <div class="relative">
                                     <button @click="submit"
-                                        class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">Create Account</button>
+                                        class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-pink-600 rounded-lg hover:bg-pink-700 ease">{{!isLoading ? "CREATE ACCOUNT" : "LOADING..."}}</button>
                                 </div>
                             </div>
                         </div>
@@ -79,11 +79,43 @@ if (session?.value?.user) {
     router.push('/')
 }
 
-let isLoading = false;
+let isLoading = ref(false);
+
+function validate() {
+    if (email.value.length < 1) {
+        swal("Error", "Please enter an email address.", "error");
+        return false;
+    }
+    if (password.value.length < 1) {
+        swal("Error", "Please enter a password.", "error");
+        return false;
+    } 
+    if (username.value.length < 1) {
+        swal("Error", "Please enter a username.", "error");
+        return false;
+    }
+    if (!email.value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        swal("Error", "Please enter a valid email address.", "error");
+        return false;
+    } 
+    if (password.value.length < 8 || password.value.length > 30) {
+        swal("Error", "Password must be between 8 and 30 characters.", "error");
+        return false;
+    }
+    if (username.value.length < 2 || username.value.length > 20) {
+        swal("Error", "Username must be between 2 and 20 characters.", "error");
+        return false;
+    }
+    return true;
+}
 
 async function submit() {
-    if (isLoading) return;
-    isLoading = true;
+    var valid = validate();
+    if (!valid) {
+        return;
+    }
+    if (isLoading.value) return;
+    isLoading.value = true;
     const response = await request({
         url: "/api/auth/register",
         method: "POST",
@@ -95,8 +127,8 @@ async function submit() {
     })
 
     if (response.status != 200) {
-        swal("Oops!", "Something went wrong ["+ response.status +"]", "error");
-        isLoading = false;
+        swal("Error!", response.data.error.data, "error");
+        isLoading.value = false;
     } else {
         window.localStorage.setItem("token", response.data.token);
         reloadAuth();
