@@ -198,7 +198,15 @@ xhr.onreadystatechange = function () {
          if (xhr.status === 200) {
             window.location.href = '/settings/forms/' + JSON.parse(xhr.responseText).data.formId
          } else {
-              swal("Oops!", "Error creating form.")
+               if (JSON.parse(xhr.response).error.detail) {
+            swal("Oops!", JSON.parse(xhr.response).error.detail, "error")
+        } else if (xhr.response.error.data) {
+                swal("Oops!", JSON.parse(xhr.response).error.data, "error")
+        } else if (xhr.response.error.message) {
+            swal("Oops!", JSON.parse(xhr.response).error.message, "error")
+        } else {
+            swal("Oops!", "Something went wrong", "error")
+        }
          }
    }};
 
