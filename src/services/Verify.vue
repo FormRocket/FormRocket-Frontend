@@ -5,7 +5,7 @@
     <ShowError error="unauthorized" />
 </AppContent>
 </div>
-<div v-else-if="session.user.isVerified"><Navbar :showDashboard="true" />
+<div v-else-if="session.user.isVerified">
 <Navbar :showDashboard="true" />
 <AppContent>
     <ShowError error="alreadyVerified" />
