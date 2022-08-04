@@ -1,7 +1,7 @@
 <template>
     <Navbar :showBack="true" :showHome="true" />
-    <div class="appContent p-10">
-        <h1 class="text-5xl mb-5">Legal: <span style="display:initial !important;" class="text-lg-gradient">Terms of Service</span></h1>
+    <AppContent class="p-10">
+       <h1 class="text-5xl mb-5">Legal: <span style="display:initial !important;" class="text-lg-gradient">Terms of Service</span></h1>
         <p>
             This is the Terms of Service for the <a href="https://www.formrocket.me">FormRocket</a> website, owned by SweetSuite Labs.
         </p>
@@ -103,15 +103,11 @@
             <u class="font-italic">Last updated 7/24/2022</u>
         </p>
         <br class="mt-9 mb-9" />
-        <Footer />
-
-
-
-
-    </div>
+        <Footer /> 
+    </AppContent>
 </template>
 <script setup>
-import { session, login, logout } from '@/services/auth.js'
+import AppContent from '../AppContent.vue';
 import Icon from "@/iconly/iconly.vue";
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'

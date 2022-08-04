@@ -8,13 +8,12 @@
 
     <div v-else>
         <Navbar :session="session" :showBack="true" :showDashboard="true" />
-           <div class="appContent p-9">
+            <AppContent class="p-9">
                 <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">SIGNED IN AS {{session.user.name}}</h4>
                 <h1 class="text-5xl mb-5 mt-2">Manage your <span style="display:initial !important;"
                     class="text-lg-gradient">User Settings.</span> </h1>
                 <p>Manage your FormRocket Account.</p>
 
-                
                 <h1 class="text-4xl mt-8 mb-2">Name <Icon icon="User2" bulk size="35px" /></h1>
                 <p>This field cannot be modified.</p>
                 <input disabled :value="session.user.name" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
@@ -38,14 +37,11 @@
                 <p>This is used as an authorization token for all FormRocket requests.<br /><b>Never share with anyone.</b></p>
                 <input disabled :value="session.token" class="text-white p-1 mt-4 px-3 rounded-lg" />
                 -->
-
-                
-                </div>
-
-
-</div>
+            </AppContent>
+    </div>
 </template>
 <script setup>
+import AppContent from './AppContent.vue';
 import { session } from '@/services/auth.js'
 import { useRoute } from 'vue-router';
 import ShowError from '@/components/ShowError.vue';

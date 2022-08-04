@@ -116,7 +116,7 @@ button {
   bottom: 0 !important;
 }
 
-.appContent {
+.appContent, .innerAppcontent {
   position: relative;
 }
 
@@ -180,7 +180,27 @@ button {
   height: calc(100% - 40px);
   width: calc(100% - 200px);
   margin-left: 200px;
-  margin-top: 40px
+  margin-top: 40px;
+}
+
+.innerAppcontent {
+  width: 100%;
+  height: 100%;
+}
+
+.appBanner ~ .innerAppcontent {
+  height: calc(100% - 50px);;
+}
+
+.appBanner {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  font-weight: 500;
 }
 
 @media (max-width: 992px) {

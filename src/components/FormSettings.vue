@@ -8,17 +8,17 @@
     <div v-else>
         <div v-if="form">
            <Navbar :session="session" :showBack="true" :showDashboard="true" />
-           <div class="appContent p-9">
-                     <div class="flex flex-wrap md:mb-5 mb-8">
-                          <button @click="switchTab('responses')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'responses' ? (' bg-[#121212] font-bold') : '')">RESPONSES</button>
-                          <button @click="switchTab('setup')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'setup' ? (' bg-[#121212] font-bold') : '')">SETUP FORM</button>
-                          <button @click="switchTab('basicInfo')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'basicInfo' ? (' bg-[#121212] font-bold') : '')" >BASIC INFO</button>
-                          <button @click="switchTab('analytics')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'analytics' ? (' bg-[#121212] font-bold') : '')">ANALYTICS</button>
-                          <button @click="switchTab('integrations')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'integrations' ? (' bg-[#121212] font-bold') : '')">INTEGRATIONS</button>
-                          <button @click="switchTab('thankYouPage')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'thankYouPage' ? (' bg-[#121212] font-bold') : '')">THANK YOU PAGE</button>
-                          <button @click="switchTab('security')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'security' ? (' bg-[#121212] font-bold') : '')">SECURITY</button>
-                          <button @click="switchTab('dangerZone')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'dangerZone' ? (' bg-[#121212] font-bold') : '')">DANGER ZONE</button>
-                     </div>
+           <AppContent class="p-9">
+                <div class="flex flex-wrap md:mb-5 mb-8">
+                    <button @click="switchTab('responses')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'responses' ? (' bg-[#121212] font-bold') : '')">RESPONSES</button>
+                    <button @click="switchTab('setup')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'setup' ? (' bg-[#121212] font-bold') : '')">SETUP FORM</button>
+                    <button @click="switchTab('basicInfo')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'basicInfo' ? (' bg-[#121212] font-bold') : '')" >BASIC INFO</button>
+                    <button @click="switchTab('analytics')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'analytics' ? (' bg-[#121212] font-bold') : '')">ANALYTICS</button>
+                    <button @click="switchTab('integrations')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'integrations' ? (' bg-[#121212] font-bold') : '')">INTEGRATIONS</button>
+                    <button @click="switchTab('thankYouPage')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'thankYouPage' ? (' bg-[#121212] font-bold') : '')">THANK YOU PAGE</button>
+                    <button @click="switchTab('security')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'security' ? (' bg-[#121212] font-bold') : '')">SECURITY</button>
+                    <button @click="switchTab('dangerZone')" :class="'mb-2 settingsBarItem px-4 py-1 rounded-lg'  + (showTab == 'dangerZone' ? (' bg-[#121212] font-bold') : '')">DANGER ZONE</button>
+                </div>
 
                 <div v-if="showTab == 'responses'">
                     <Responses :form="form" :formId="formId" :switchTab="switchTab" :session="session" />
@@ -55,26 +55,20 @@
                 <div v-else>
                     invalid tab
                 </div>
-                
-                     
-
-                
-
-                
-                
-            </div>
+           </AppContent>
         </div>
 
         <div v-else>
             <Navbar :session="session" :showBack="true" />
-            <div class="appContent">
+            <AppContent>
                 <ShowError error="invalidForm" />
-            </div>
+            </AppContent>
         </div>
 
     </div>
 </template>
 <script setup>
+import AppContent from './AppContent.vue';
 import { session, login } from '@/services/auth.js'
 import { useRoute } from 'vue-router';
 import Card from "@/components/Card.vue";

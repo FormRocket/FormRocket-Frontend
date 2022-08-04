@@ -8,8 +8,8 @@
 
     <div v-else>
         <Navbar :session="session" :showBack="true" :showDashboard="true" />
-           <div class="appContent p-9">
-                <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
+        <AppContent class="p-9">
+            <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
                 <h1 class="text-5xl mb-3 mt-2">Build a <span style="display:initial !important;"
                     class="text-lg-gradient">new form.</span> </h1>
                 <p>Start recieving submissions right away!</p>
@@ -95,14 +95,11 @@
                 <p>This is used as an authorization token for all FormRocket requests.<br /><b>Never share with anyone.</b></p>
                 <input disabled :value="session.token" class="text-white p-1 mt-4 px-3 rounded-lg" />
                 -->
-
-                
-                </div>
-
-
-</div>
+        </AppContent>
+    </div>
 </template>
 <script setup>
+import AppContent from './AppContent.vue';
 import { session } from '@/services/auth.js'
 import { useRoute } from 'vue-router';
 import ShowError from '@/components/ShowError.vue';
