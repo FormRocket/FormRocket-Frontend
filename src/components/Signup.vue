@@ -132,7 +132,7 @@ async function submit() {
     } else {
         window.localStorage.setItem("token", response.data.token);
         reloadAuth();
-        router.push("/")
+        router.push("/onboarding/verify")
     }
 }
 

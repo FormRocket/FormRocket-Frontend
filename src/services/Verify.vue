@@ -1,13 +1,16 @@
 <template>
 <div v-if="!session.user">
+<Navbar :showDashboard="true" />
+    <AppContent>
     <ShowError error="unauthorized" />
+</AppContent>
 </div>
 <div v-else-if="session.user.isVerified"><Navbar :showDashboard="true" />
-    <div class="appContent p-9">
-    <svg style="width:80px;height:80px;" class="text-red-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                <h1 class="text-5xl mb-3 text-red-500">Already verified!</h1>
-                <p>Your account is already verified- no need to redo verification!</p>
-    </div></div>
+<Navbar :showDashboard="true" />
+<AppContent>
+    <ShowError error="alreadyVerified" />
+</AppContent>
+    </div>
 <div v-else-if="!emailToken || !/^[0-9a-f]*$/.test(emailToken)">
     <Navbar :showDashboard="true" />
     <div class="appContent p-9">
@@ -35,6 +38,7 @@ import Navbar from '@/components/Navbar.vue';
 import { ref } from "vue"
 import { request } from './request.js';
 import ShowError from '../components/ShowError.vue';
+import AppContent from '@/components/AppContent.vue';
 const router = useRouter();
 const route = useRoute();
 const emailToken = ref(route.params.token);
@@ -51,10 +55,12 @@ async function onVerify(token) {
 
     if (response.status != 200) {
         swal("Error!", response.data?.error?.data || "Unknown error", "error");
+        router.push("/");
     } else {
         session.user.isVerified = true
+        router.push('/onboarding/main')
     }
-    router.push("/");
+    
 } 
 
 </script>

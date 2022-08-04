@@ -11,6 +11,8 @@ import SuccessPage from "./components/ThankYouPage/SuccessPage.vue";
 import Signup from "./components/Signup.vue";
 import Signin from './components/Signin.vue';
 import Verify from './services/Verify.vue'
+import OnboardingVerify from './components/OnboardingVerify.vue'
+import OnboardingMain from './components/OnboardingMain.vue'
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -55,6 +57,14 @@ const routes = [
     {
         path: '/verify/:token',
         component: Verify
+    },
+    {
+        path: '/onboarding/verify',
+        component: OnboardingVerify
+    },
+    {
+        path: '/onboarding/main',
+        component: OnboardingMain
     }
 ]
 
