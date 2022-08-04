@@ -6,6 +6,13 @@
         </div>
     </div>
 
+    <div v-else-if="!session.user.isVerified">
+        <Navbar :session="session" :showBack="true" />
+        <AppContent>
+            <ShowError error="unverified" />
+        </AppContent>
+    </div>
+
     <div v-else>
         <Navbar :session="session" :showBack="true" :showDashboard="true" />
         <AppContent class="p-9">
