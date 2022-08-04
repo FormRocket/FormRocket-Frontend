@@ -43,6 +43,8 @@
                                         class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
                                         placeholder="Password">
                                 </div>
+                                <p class="text-lg text-gray-500">Forgot your password? <router-link to="/reset"
+                                    class="text-pink-500 cursor-pointer hover:text-pink-400">Reset Password</router-link>.</p>
                                 <div class="relative">
                                     <button
                                         @click="submit"
