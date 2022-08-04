@@ -38,12 +38,11 @@ export default {
       })
   
       if (response.status != 200) {
-          swal("Error!", response.data.error.data, "error");
-          isLoading.value = false;
+            swal("Error!", response.data.error.data, "error");
+            isLoading.value = false;
       } else {
-          window.localStorage.setItem("token", response.data.token);
-          reloadAuth();
-          router.push("/")
+            swal("Success", "Check your inbox to reset your password.", "success");
+            router.push("/")
       }
   }
 
