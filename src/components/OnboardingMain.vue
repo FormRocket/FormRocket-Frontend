@@ -29,6 +29,9 @@
                 <Card title="Create a form!" text="Build your very first form!" href="/new" />
             </div>
             <div class="w-full md:w-1/3 lg:w-1/4 p-3">
+                <Card title="Visit dashboard" text="Check out your dashboard!" href="/" />
+            </div>
+            <div class="w-full md:w-1/3 lg:w-1/4 p-3">
                 <Card title="Manage settings" text="View and manage your account" href="/settings" />
             </div>
             <div class="w-full md:w-1/3 lg:w-1/4 p-3">
