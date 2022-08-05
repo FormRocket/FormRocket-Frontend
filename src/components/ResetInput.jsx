@@ -126,7 +126,7 @@ export default {
                                 <label class="font-medium text-gray-400">New Password</label>
                                 <input v-model={vals.password} type="text"
                                     class="block w-full px-4 py-4 mt-2 text-xl rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
-                                    placeholder="Password" onKeydown={vals.handleKeyDown} />
+                                    placeholder="Password" type="password" onKeydown={vals.handleKeyDown} />
                             </div>
                             <div class="relative">
                                 <button
