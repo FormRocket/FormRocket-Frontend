@@ -1,5 +1,5 @@
 <template>
-    <template v-if="session.user">
+    <div v-if="session.user">
         <Navbar :session="session" :showLogout="true" :showNewForm="true" />
         <AppContent class="p-10">
             <div>
@@ -39,8 +39,8 @@
             <br class="mt-9 mb-9" />
             <Footer />
         </AppContent>
-    </template>
-    <template v-else>
+    </div>
+    <div v-else>
         <Navbar :session="null" :showLogin="true" />
         <div class="p-10 appContent">
 <div class="h-auto">
@@ -102,7 +102,6 @@
 </section>
 
 
-<!-- Section 1 -->
 <section class="py-24">
     <div class="px-8 mx-auto max-w-7xl lg:px-16">
         <h2 class="mb-4 text-xl font-bold md:text-3xl">Frequently Asked Questions</h2>
@@ -130,7 +129,7 @@
 <Footer />
 
         </div>
-    </template>
+    </div>
 </template>
 
 <script setup>
