@@ -96,7 +96,7 @@ export function reloadAuth() {
         }).then(response => {
             if (response.status == 200) {
                 session.value = { token, user: response.data, forms: response.data.forms }  // forms is kinda useless, since its already in the user object 💀
-            } else {
+            } else if (response.status == 401) {
                 localStorage.removeItem("token");
             }
 

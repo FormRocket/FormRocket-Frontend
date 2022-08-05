@@ -24,6 +24,16 @@
                         <Card :title="form.name" :text="'Created ' + formatDistance(form.createdAt, new Date(), { addSuffix: true })" :href="'/settings/forms/' + form.formId" />
                     </div>
                 </div>
+                
+                <template v-if="session.user.plan == 2">
+                    <h1 class="text-4xl mb-3 mt-9 text-bold">Your Organizations <Icon icon="Paper" bulk size="35px" /></h1>
+                    <p class="text-lg mb-5">You manage <b>1 organization</b></p>
+                    <div class="flex flex-wrap">
+                        <div class="w-full md:w-1/3 lg:w-1/4 p-3">
+                            <Card title="FormRocket" text="Created 1 day ago"  />
+                        </div>
+                    </div>
+                </template>
 
                 <!--<h1 class="text-4xl mb-3 mt-9 text-bold">Your Organizations</h1>
                 <p class="text-lg mb-5">Manage forms within your organizations.</p>
