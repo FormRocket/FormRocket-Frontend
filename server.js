@@ -49,4 +49,4 @@ const server = http.createServer(function (req, res) {
   }
   sendResponse(res, "./dist/index.html");
 });
-server.listen(5000);
+server.listen(5000, 'localhost');
