@@ -14,6 +14,7 @@ import Verify from './services/Verify.vue'
 import OnboardingVerify from './components/OnboardingVerify.vue'
 import OnboardingMain from './components/OnboardingMain.vue'
 import ResetPass from './components/ResetPass.jsx'
+import ResetInput from './components/ResetInput.jsx'
 import './style.css'
 
 // I Hate Vue Router 💀
@@ -58,7 +59,12 @@ const routes = [
     {
         path: '/verify/:token',
         component: Verify
-    }, {
+    },
+    {
+        path: '/reset/:token',
+        component: ResetInput
+    },
+    {
         path: '/reset',
         component: ResetPass
     },
