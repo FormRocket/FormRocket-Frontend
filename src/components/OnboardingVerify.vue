@@ -22,6 +22,7 @@
         </h1>
         <p class="mb-1">You just created your FormRocket account! 🎉</p>
         <p class="mb-1">Verify your email address by clicking the link we just sent to <b>{{session.user.email}}</b></p>
+        
         </AppContent>
 </div>
 </template>

@@ -3,6 +3,10 @@
    <h1 class="text-5xl mb-5"><span style="display:initial !important;" class="text-lg-gradient">{{form.name}}:</span> Integrations</h1>
                 <p>Tweak your form&apos;s integrations &amp; add new ones.</p>
 
+                <h1 class="text-3xl mt-4">Email</h1>
+                <p class="mt-2">Coming soon.</p>
+
+
                 <h1 class="text-3xl mt-4">Discord</h1>
                 <p class="mt-2">Connect your form to a Discord channel.</p>
                 <input :value="formObj.discordWebhook" v-on:input="formObj.discordWebhook = $event.target.value" placeholder="Discord Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
