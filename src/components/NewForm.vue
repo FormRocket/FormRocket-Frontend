@@ -91,12 +91,11 @@
                 </div>
 
                 <div v-if="atState == 'createForm'">
-                <h1 class="text-3xl mt-8 mb-2">Create your form</h1>
-                <p>Lets finish building <b>{{formObj.formName || "your new form"}}</b>!</p>
+                <h1 class="text-3xl mt-8 mb-2">Are you human?</h1>
+                <p>Complete the CAPTCHA to finish building this form.</p>
                 <div class="block pt-[20px]">
-                <button class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none" @click="changeState('thankYouPage')">&lt; BACK</button>
-                    <button class="ml-2 introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none" @click="createForm">CREATE FORM &gt;</button> 
-                
+                <vue-hcaptcha sitekey="1f0ce22d-020d-4fa7-834b-88d971de8d8c" @verify="onVerify"></vue-hcaptcha>
+                <button class="mt-5 introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none" @click="changeState('thankYouPage')">&lt; BACK</button>
                 </div>
                 </div>
 
@@ -116,8 +115,10 @@ import { useRoute } from 'vue-router';
 import ShowError from '@/components/ShowError.vue';
 import Navbar from '@/components/Navbar.vue';
 import Icon from '@/iconly/iconly.vue';
+import VueHcaptcha from '@hcaptcha/vue3-hcaptcha';
 import {ref} from 'vue'
 const route = useRoute();
+const loading = ref(false);
 
 const atState = ref("formName")
 
@@ -186,7 +187,8 @@ function validateForm() {
     }
 }
 
-function createForm() {
+function onVerify(token) {
+    if (!token) return;
     const validation = validateForm()
     if (validation.error) {
         changeState(validation.state)
@@ -219,9 +221,9 @@ xhr.onreadystatechange = function () {
          }
    }};
 
-var data = JSON.stringify(formObj);
+    var data = JSON.stringify({...formObj, ...{captcha: token}});
 
-xhr.send(data);
+    xhr.send(data);
 
 }
 

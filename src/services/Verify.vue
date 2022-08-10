@@ -44,6 +44,9 @@ const route = useRoute();
 const emailToken = ref(route.params.token);
 
 async function onVerify(token) {
+    function redirect(url) {
+        window.location.href = url;
+    }
     const response = await request({
         url: "/api/verifyEmail/submit",
         method: "POST",
@@ -55,10 +58,10 @@ async function onVerify(token) {
 
     if (response.status != 200) {
         swal("Error!", response.data?.error?.data || "Unknown error", "error");
-        router.push("/");
+        redirect("/");
     } else {
         session.user.isVerified = true
-        router.push('/onboarding/main')
+        redirect('/onboarding/main')
     }
     
 } 
