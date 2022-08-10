@@ -109,5 +109,6 @@ export function reloadAuth() {
 
 export function logout() {
     localStorage.removeItem("token");
-    session.value = { token: null, user: null }
+    //session.value = { token: null, user: null }
+    window.location.href = '/'
 }
