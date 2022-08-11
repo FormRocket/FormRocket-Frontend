@@ -80,10 +80,10 @@
                 <p>Defaults to the browsers default back action.</p>
                 <input placeholder="Back URL" v-bind:value="formObj.backUrl" v-on:input="formObj.backUrl = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
                 
-                <h1 class="text-2xl mt-4 mb-3">Redirect URL</h1>
-                <p>Redirect to this URL after the form is submitted.</p>
-                <input placeholder="Redirect URL" v-bind:value="formObj.redirectUrl" v-on:input="formObj.redirectUrl = $event.target.value" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
-
+                <h1 class="text-3xl mt-4">Redirect URL</h1>
+                <p class="mt-2">Redirect the user to a custom URL when the response has been submitted.</p>
+                <input :value="formObj.redirectUrl" v-on:input="formObj.redirectUrl = $event.target.value" :placeholder="session.user.plan >= 2 ? 'Redirect URL' : 'Business Plan Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 2 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 2 ? false : true"  />
+                
                 <div class="block pt-[20px]">
                 <button class="introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none" @click="changeState('integrations')">&lt; BACK</button> 
                 <button class="ml-2 introductionButton sm:display-block text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 bg-[#222222] focus:outline-none" @click="changeState('createForm')">NEXT &gt;</button>

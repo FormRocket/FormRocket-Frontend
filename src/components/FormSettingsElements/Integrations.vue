@@ -4,19 +4,20 @@
                 <p>Tweak your form&apos;s integrations &amp; add new ones.</p>
 
                 <h1 class="text-3xl mt-4">Email</h1>
-                <p class="mt-2">Coming soon.</p>
-
+                <p class="mt-2">Get notified via email when a new submission is recieved!</p>
+                <input :value="null" v-on:input="null" :placeholder="false ? 'Email Address' : 'Coming Soon'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 1 ? ' cursor-not-allowed' : '')" :disabled="false ? false : true"  />
+                
 
                 <h1 class="text-3xl mt-4">Discord</h1>
                 <p class="mt-2">Connect your form to a Discord channel.</p>
                 <input :value="formObj.discordWebhook" v-on:input="formObj.discordWebhook = $event.target.value" placeholder="Discord Webhook URL" class="cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg" />
 
-                <h1 class="text-3xl mt-4">Slack (Business Plan)</h1>
+                <h1 class="text-3xl mt-4">Slack</h1>
                 <p class="mt-2">Connect your form to a Slack room. Requires the business plan.</p>
                 <p class="mt-2">You can find your Slack webhook URL from the Incoming WebHook Slack app.</p>
                 <input :value="formObj.slackWebhook" v-on:input="formObj.slackWebhook = $event.target.value" :placeholder="session.user.plan >= 2 ? 'Slack Webhook URL' : 'Business Plan Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 2 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 2 ? false : true" />
 
-                <h1 class="text-3xl mt-4">Custom Server (Premium)</h1>
+                <h1 class="text-3xl mt-4">Custom Server</h1>
                 <p class="mt-2">Connect your form to a custom server. Requires the premium plan.</p>
                 <input :value="formObj.customWebhook" v-on:input="formObj.customWebhook = $event.target.value" :placeholder="session.user.plan >= 1 ? 'Custom Server URL' : 'Premium Feature'" :class="'cursor-text text-gray-300 p-1 mt-4 px-3 rounded-lg' + (session.user.plan <= 1 ? ' cursor-not-allowed' : '')" :disabled="session.user.plan >= 1 ? false : true"  />
                 

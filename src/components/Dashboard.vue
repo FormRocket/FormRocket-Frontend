@@ -1,6 +1,7 @@
 <template>
     <template v-if="session.user">
         <Navbar :session="session" :showLogout="true" :showNewForm="true" />
+
         <AppContent class="p-10">
             <div>
                 <h4 class="w-full text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold text-lg-gradient uppercase">FORMROCKET {{plans[session.user.plan]}}</h4>
