@@ -5,7 +5,7 @@
                 <div class="break-words bg-[#121212] mx-[5%] my-[3%] p-4 rounded-lg">
                     <h1 class="text-4xl mb-2">Submit with HTML</h1>
                 <pre class="break-words">
-<code>&lt;form action="https://api.formrocket.me/api/submit/{{form.formId}}" method="POST"&gt;
+<code>&lt;form action="https://frapi.sweetsuite.tech/api/submit/{{form.formId}}" method="POST"&gt;
     &lt;label for="username"&gt;Username&lt;/label&gt;
     &lt;input id="username" type="text" name="username" placeholder="Enter Username" /&gt;
 &lt;/form&gt;</code>
@@ -21,7 +21,7 @@
         username: "cool username"
     }
 
-    fetch('https://api.formrocket.me/api/submit/{{form.formId}}/?json=true', {
+    fetch('https://frapi.sweetsuite.tech/api/submit/{{form.formId}}/?json=true', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

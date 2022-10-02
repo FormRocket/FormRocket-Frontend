@@ -196,7 +196,7 @@ function onVerify(token) {
         return
     }
 
-    var url = "https://api.formrocket.me/api/forms/create";
+    var url = "https://frapi.sweetsuite.tech/api/forms/create";
 
 var xhr = new XMLHttpRequest();
 xhr.open("POST", url);
