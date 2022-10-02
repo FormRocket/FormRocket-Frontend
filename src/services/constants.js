@@ -1,1 +1,1 @@
-export const apiURL = "https://api.formrocket.me";
+export const apiURL = "https://frapi.sweetsuite.tech";
